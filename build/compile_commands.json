@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/home/sw/Documents/moduoDemo/build",
+  "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/InetAddress.cc.o -c /home/sw/Documents/moduoDemo/InetAddress.cc",
+  "file": "/home/sw/Documents/moduoDemo/InetAddress.cc",
+  "output": "CMakeFiles/mymuduo.dir/InetAddress.cc.o"
+},
+{
+  "directory": "/home/sw/Documents/moduoDemo/build",
+  "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/Logger.cc.o -c /home/sw/Documents/moduoDemo/Logger.cc",
+  "file": "/home/sw/Documents/moduoDemo/Logger.cc",
+  "output": "CMakeFiles/mymuduo.dir/Logger.cc.o"
+},
+{
+  "directory": "/home/sw/Documents/moduoDemo/build",
+  "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/TimeStamp.cc.o -c /home/sw/Documents/moduoDemo/TimeStamp.cc",
+  "file": "/home/sw/Documents/moduoDemo/TimeStamp.cc",
+  "output": "CMakeFiles/mymuduo.dir/TimeStamp.cc.o"
+}
+]
