@@ -34,18 +34,6 @@
 			"value" : "/usr/bin/ar"
 		},
 		{
-			"name" : "CMAKE_BACKWARDS_COMPATIBILITY",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "For backwards compatibility, what version of CMake commands and syntax should this version of CMake try to support."
-				}
-			],
-			"type" : "STRING",
-			"value" : "2.4"
-		},
-		{
 			"name" : "CMAKE_BUILD_TYPE",
 			"properties" : 
 			[
@@ -67,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/sw/Documents/moduoDemo/build"
+			"value" : "/home/sw/Documents/mymuduo/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -151,10 +139,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "CXX compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "/usr/bin/g++"
 		},
 		{
@@ -279,10 +267,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "C compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "/usr/bin/gcc"
 		},
 		{
@@ -539,7 +527,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/sw/Documents/moduoDemo/build/CMakeFiles/pkgRedirects"
+			"value" : "/home/sw/Documents/mymuduo/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -599,7 +587,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/sw/Documents/moduoDemo"
+			"value" : "/home/sw/Documents/mymuduo"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1142,30 +1130,6 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "EXECUTABLE_OUTPUT_PATH",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Single output directory for building all executables."
-				}
-			],
-			"type" : "PATH",
-			"value" : ""
-		},
-		{
-			"name" : "LIBRARY_OUTPUT_PATH",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Single output directory for building all libraries."
-				}
-			],
-			"type" : "PATH",
-			"value" : ""
-		},
-		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
 			"properties" : 
 			[
@@ -1178,42 +1142,6 @@
 			"value" : "TRUE"
 		},
 		{
-			"name" : "myduduo_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/sw/Documents/moduoDemo/build"
-		},
-		{
-			"name" : "myduduo_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "ON"
-		},
-		{
-			"name" : "myduduo_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/sw/Documents/moduoDemo"
-		},
-		{
 			"name" : "mymuduo_BINARY_DIR",
 			"properties" : 
 			[
@@ -1223,7 +1151,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/sw/Documents/moduoDemo/build"
+			"value" : "/home/sw/Documents/mymuduo/build"
 		},
 		{
 			"name" : "mymuduo_IS_TOP_LEVEL",
@@ -1247,7 +1175,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/sw/Documents/moduoDemo"
+			"value" : "/home/sw/Documents/mymuduo"
 		}
 	],
 	"kind" : "cache",
