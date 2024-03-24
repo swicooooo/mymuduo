@@ -5,7 +5,7 @@
 
 #include <functional>
 #include <memory>
-#include <muduo/net/Channel.h>
+
 class EventLoop;
 
 /**
