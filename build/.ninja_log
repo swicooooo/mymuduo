@@ -6,3 +6,11 @@
 1	351	1711172375477440744	CMakeFiles/mymuduo.dir/TimeStamp.cc.o	e95869d23985d322
 1	450	1711172375577478401	CMakeFiles/mymuduo.dir/Channel.cc.o	defeaea0bdbbbca9
 450	491	1711172375617493463	/home/sw/Documents/mymuduo/lib/libmymuduo.so	fdf5a0e14fd7a2d9
+1	3	0	clean	a31eedcededa8236
+2	15	1711248789029308788	CMakeFiles/mymuduo.dir/EventLoop.cc.o	a61e729eea3ec7cc
+2	15	1711248789029308788	CMakeFiles/mymuduo.dir/TcpServer.cc.o	532efbd84793a537
+2	176	1711248789189369038	CMakeFiles/mymuduo.dir/InetAddress.cc.o	22ed02006429c83a
+2	238	1711248789253393138	CMakeFiles/mymuduo.dir/Logger.cc.o	316404fa4f96c9a8
+2	305	1711248789317417238	CMakeFiles/mymuduo.dir/TimeStamp.cc.o	e95869d23985d322
+2	435	1711248789449466944	CMakeFiles/mymuduo.dir/Channel.cc.o	defeaea0bdbbbca9
+435	472	1711248789485480501	/home/sw/Documents/mymuduo/lib/libmymuduo.so	fdf5a0e14fd7a2d9
