@@ -1,7 +1,7 @@
 #pragma once
 
 #include "noncopyable.h"
-#include "TimeStamp.h"
+#include "Timestamp.h"
 
 #include <functional>
 #include <memory>
@@ -10,18 +10,19 @@ class EventLoop;
 
 /**
  * Channel 封装了sockfd和其相关event，如EPOLLIN、EPOLLOUT，以及绑定了poller需要返回的具体事件
+ * Channel通过三个状态改变fd的事件状态
 */
 class Channel : noncopyable
 {
 public:
     using EventCallback = std::function<void()>;
-    using ReadEventCallback = std::function<void(TimeStamp)>;
+    using ReadEventCallback = std::function<void(Timestamp)>;
 
     Channel(EventLoop *loop, int fd);
     ~Channel() = default;
 
     // 处理fd得到poller通知的事件
-    void handleEvent(TimeStamp receiveTime);
+    void handleEvent(Timestamp receiveTime);
     
     // 防止channel被手动romove后，还在执行回调函数
     void tie(const std::shared_ptr<void>& obj);
@@ -46,7 +47,7 @@ public:
 
     // 外界访问私有变量
     int fd() const      { return fd_; }
-    int event() const   { return events_; }
+    int events() const   { return events_; }
     void setRevent(int rvt) { revents_ = rvt; }
     int index() const   { return index_; }
     void setIndex(int idx)  { index_ = idx; }
@@ -54,7 +55,7 @@ public:
     void remove();
 private:
     void update();  // 通过poller更新fd的事件状态
-    void handleEventWithGuard(TimeStamp receiveTime);   //根据poller返回的事件，执行对应的回调函数
+    void handleEventWithGuard(Timestamp receiveTime);   //根据poller返回的事件，执行对应的回调函数
 
     static const int KNoneEvent;
     static const int KReadEvent;
@@ -64,7 +65,7 @@ private:
     const int fd_;
     int events_;     // fd相关事件
     int revents_;    // poller返回的具体发生的事件
-    int index_;
+    int index_;      // 对应Channel的状态
 
     std::weak_ptr<void> tie_;
     bool tied_;

@@ -31,10 +31,10 @@ private:
         }
     }
 
-    void onMessage(const net::TcpConnectionPtr &connPtr,net::Buffer *buf,Timestamp timestamp)
+    void onMessage(const net::TcpConnectionPtr &connPtr,net::Buffer *buf,Timestamp Timestamp)
     {
         std::string msg(buf->retrieveAllAsString());
-        std::cout << "recv data: " << msg << " time: " << timestamp.toFormattedString() << std::endl;
+        std::cout << "recv data: " << msg << " time: " << Timestamp.toFormattedString() << std::endl;
         connPtr->send(msg);
     }
 

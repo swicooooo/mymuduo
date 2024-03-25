@@ -12,6 +12,7 @@
         logger.setLogLevel(INFO); \
         char buf[1024] = {0};   \
         snprintf(buf,1024,logmsgFormat, ##__VA_ARGS__);\
+        logger.log(buf);   \
     } while (0);
 
 #define LOG_ERROR(logmsgFormat, ...) \
@@ -21,6 +22,7 @@
         logger.setLogLevel(ERROR); \
         char buf[1024] = {0};   \
         snprintf(buf,1024,logmsgFormat, ##__VA_ARGS__);  \
+        logger.log(buf);   \
     } while (0);
 
 #define LOG_FATAL(logmsgFormat, ...) \
@@ -30,6 +32,8 @@
         logger.setLogLevel(FATAL); \
         char buf[1024] = {0};   \
         snprintf(buf,1024,logmsgFormat, ##__VA_ARGS__);  \
+        logger.log(buf); \
+        exit(-1);   \
     } while (0);
 
 #ifdef MODEDEBUG
@@ -40,6 +44,7 @@
         logger.setLogLevel(DEBUG); \
         char buf[1024] = {0};   \
         snprintf(buf,1024,logmsgFormat, ##__VA_ARGS__);  \
+        logger.log(buf);   \
     } while (0);
 #else
     #define LOG_DEBUG(logmsgFormat, ...)

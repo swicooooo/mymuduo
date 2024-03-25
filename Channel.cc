@@ -8,7 +8,7 @@ const int Channel::KWriteEvent = EPOLLOUT;
 
 Channel::Channel(EventLoop *loop, int fd) :loop_(loop), fd_(fd), events_(0), revents_(0), index_(-1){}
 
-void Channel::handleEvent(TimeStamp receiveTime)
+void Channel::handleEvent(Timestamp receiveTime)
 {
     if (tied_) {
         std::shared_ptr<void> guard = tie_.lock();
@@ -38,7 +38,7 @@ void Channel::update()
     // loop_.updateChannel(this);
 }
 
-void Channel::handleEventWithGuard(TimeStamp receiveTime)
+void Channel::handleEventWithGuard(Timestamp receiveTime)
 {
     if (revents_ & EPOLLHUP && !(revents_ & EPOLLIN)) {
         if (closeEventCallback_) closeEventCallback_();

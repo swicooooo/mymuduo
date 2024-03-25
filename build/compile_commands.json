@@ -7,6 +7,18 @@
 },
 {
   "directory": "/home/sw/Documents/mymuduo/build",
+  "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/DefaultPoller.cc.o -c /home/sw/Documents/mymuduo/DefaultPoller.cc",
+  "file": "/home/sw/Documents/mymuduo/DefaultPoller.cc",
+  "output": "CMakeFiles/mymuduo.dir/DefaultPoller.cc.o"
+},
+{
+  "directory": "/home/sw/Documents/mymuduo/build",
+  "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/EPollPoller.cpp.o -c /home/sw/Documents/mymuduo/EPollPoller.cpp",
+  "file": "/home/sw/Documents/mymuduo/EPollPoller.cpp",
+  "output": "CMakeFiles/mymuduo.dir/EPollPoller.cpp.o"
+},
+{
+  "directory": "/home/sw/Documents/mymuduo/build",
   "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/EventLoop.cc.o -c /home/sw/Documents/mymuduo/EventLoop.cc",
   "file": "/home/sw/Documents/mymuduo/EventLoop.cc",
   "output": "CMakeFiles/mymuduo.dir/EventLoop.cc.o"
@@ -31,8 +43,8 @@
 },
 {
   "directory": "/home/sw/Documents/mymuduo/build",
-  "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/TimeStamp.cc.o -c /home/sw/Documents/mymuduo/TimeStamp.cc",
-  "file": "/home/sw/Documents/mymuduo/TimeStamp.cc",
-  "output": "CMakeFiles/mymuduo.dir/TimeStamp.cc.o"
+  "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/Timestamp.cc.o -c /home/sw/Documents/mymuduo/Timestamp.cc",
+  "file": "/home/sw/Documents/mymuduo/Timestamp.cc",
+  "output": "CMakeFiles/mymuduo.dir/Timestamp.cc.o"
 }
 ]

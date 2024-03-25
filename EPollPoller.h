@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Poller.h"
-#include "TimeStamp.h"
+#include "Timestamp.h"
 
 #include <sys/epoll.h>
 #include <vector>
@@ -10,7 +10,7 @@ class EventLoop;
 class Channel;
 
 /**
- * EPoll
+ * EPoller通过三个状态控制Channel的注册和销毁
  * epoll_create     epoll_ctl    epoll_wait
 */
 class EPollPoller : public Poller
@@ -19,16 +19,15 @@ public:
     EPollPoller(EventLoop *loop);
     ~EPollPoller() override;
 
-    TimeStamp poll(int timeoutMs, ChannelLists *activeChannel) override;
-    void updateChannel(Channel *channel) override;
-    void removeChannel(Channel *channel) override;
-
+    Timestamp poll(int timeoutMs, ChannelList *activeChannel) override;
+    void updateChannel(Channel *channel) override;      // 根据channel是否注册到poller中进行分类
+    void removeChannel(Channel *channel) override;      // 从Poller和Channels中移除channel
 private:
-    void fillActiveChannel(int numEvents, ChannelLists *activeChannel) const; // 填充活跃的通道
-    void update(int operation, Channel *channel); // 更新通道状态
+    void update(int operation, Channel *channel);       // 更新Channel在Poller中的状态
+    void fillActiveChannel(int numEvents, ChannelList *activeChannel) const; // 填充活跃的通道
 
     static const int KInitEventListSize = 16;
     using EventList = std::vector<epoll_event>;
-    int epoll_fd_;
-    EventList event_list_;
+    int epollfd_;          // poller的标识符
+    EventList eventlist_;  // poller保存的事件合集
 };
