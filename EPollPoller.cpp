@@ -1,8 +1,11 @@
 #include "EPollPoller.h"
 #include "Logger.h"
 #include "Channel.h"
+#include "Timestamp.h"
 
+#include <asm-generic/errno-base.h>
 #include <errno.h>
+#include <sys/epoll.h>
 #include <unistd.h>
 #include <string.h>
 
@@ -22,11 +25,44 @@ EPollPoller::~EPollPoller()
     ::close(epollfd_);
 }
 
+Timestamp EPollPoller::poll(int timeoutMs, ChannelList *activeChannel)
+{
+    // LOG_DEBUG 
+    LOG_INFO("func: %s => fd total size: %lu \n",__FUNCTION__, activeChannel->size());
+    Timestamp timestamp(Timestamp::now());
+    int saveErrno = errno;
+    int numEvents=::epoll_wait(epollfd_, &*eventlist_.begin(), sizeof eventlist_, timeoutMs);
+    if(numEvents > 0) {
+        LOG_INFO("func: %s => event happen: %d \n",__FUNCTION__, numEvents);    
+        fillActiveChannel(numEvents, activeChannel);
+        if(numEvents == eventlist_.size())
+            eventlist_.resize(numEvents*2);
+    }
+    else if(numEvents == 0) {
+        LOG_INFO("func: %s => timeout! \n",__FUNCTION__);
+    }
+    else if(numEvents < 0) {
+        if(saveErrno != EINTR) {
+            errno = saveErrno;
+            LOG_INFO("func: %s => poll error %d \n",__FUNCTION__, errno);
+        }
+    }
+    return timestamp;
+}
+
+void EPollPoller::fillActiveChannel(int numEvents, ChannelList *activeChannel) const
+{
+    for(int i=0; i<numEvents; ++i) {
+        Channel *channel = static_cast<Channel*>(eventlist_[i].data.ptr);
+        channel->setRevent(eventlist_[i].events);
+        activeChannel->push_back(channel);
+    }
+}
+
 void EPollPoller::updateChannel(Channel *channel)
 {
     int index = channel->index();
-    LOG_INFO("fd=%d events=%d index=%d \n",channel->fd(),channel->events(),index);
-    // 如果是新添加的，则添加到epollfd_中
+    LOG_INFO("func: %s => fd=%d events=%d index=%d \n",__FUNCTION__,channel->fd(),channel->events(),index);
     if (index == KNew || index == KDeleted) {
         if(index == KNew) {
             channels_[channel->fd()] = channel;
@@ -45,6 +81,7 @@ void EPollPoller::updateChannel(Channel *channel)
 
 void EPollPoller::removeChannel(Channel *channel)
 {
+    LOG_INFO("func: %s => fd=%d \n",__FUNCTION__,channel->fd());
     channels_.erase(channel->fd());
     if(channel->index() == KAdded) {
         update(EPOLL_CTL_DEL, channel);

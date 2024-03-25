@@ -20,11 +20,11 @@ public:
     ~EPollPoller() override;
 
     Timestamp poll(int timeoutMs, ChannelList *activeChannel) override;
-    void updateChannel(Channel *channel) override;      // 根据channel是否注册到poller中进行分类
-    void removeChannel(Channel *channel) override;      // 从Poller和Channels中移除channel
+    void updateChannel(Channel *channel) override;      // 在Channel中改变event状态后poller相应改变epoll中的fd感兴趣事件
+    void removeChannel(Channel *channel) override;      // 从epoll和Channels中移除channel
 private:
-    void update(int operation, Channel *channel);       // 更新Channel在Poller中的状态
-    void fillActiveChannel(int numEvents, ChannelList *activeChannel) const; // 填充活跃的通道
+    void update(int operation, Channel *channel);       // 更新fd在epoll中的感兴趣事件
+    void fillActiveChannel(int numEvents, ChannelList *activeChannel) const; // 填充活跃的Channel
 
     static const int KInitEventListSize = 16;
     using EventList = std::vector<epoll_event>;
