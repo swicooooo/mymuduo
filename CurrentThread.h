@@ -1,17 +1,18 @@
 #pragma once
 
 #include <unistd.h>
+#include <sys/syscall.h>
 
-namespace CurrentThread 
+namespace CurrentThread
 {
-    static __thread int t_cacheTid;
+    extern __thread int t_cacheTid;
 
-    void tid();
+    void cacheTid();    // 获取linux下进程管理的当前线程id
 
-    inline int cacheTid() {
-        if(__builtin_VA(t_cacheTid, 0) == 0) {
-            tid();
+    inline int tid() {
+        if(__builtin_expect(t_cacheTid == 0, 0)) {  // 默认优化
+            cacheTid();
         }
         return t_cacheTid;
-    }
+    }      
 }

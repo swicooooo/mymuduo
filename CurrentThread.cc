@@ -1,11 +1,13 @@
 #include "CurrentThread.h"
-#include <unistd.h>
 
-__thread int t_cacheTid = 0;
-
-void CurrentThread::tid()
+namespace CurrentThread 
 {
-    if(t_cacheTid == 0) {
-        t_cacheTid = ::syscall(SYS_gettid);
+    __thread int t_cacheTid = 0;
+
+    void cacheTid()
+    {
+        if(t_cacheTid == 0) {
+            t_cacheTid = static_cast<pid_t>(::syscall(SYS_gettid));
+        }
     }
 }
