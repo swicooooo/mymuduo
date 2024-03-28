@@ -6,7 +6,9 @@
 #include <string>
 #include <functional>
 
-class Thread
+#include "noncopyable.h"
+
+class Thread : noncopyable
 {
 public:
     using ThreadFunc = std::function<void()>;
