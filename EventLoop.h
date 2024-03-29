@@ -39,9 +39,9 @@ public:
     void wakeup();  // 向wakeup随便写一个数据来唤醒loop所在线程
 
     // 执行poller中的Channel操作
-    void updateChannel(Channel *channel) { poller_->updateChannel(channel); }
-    void removeChannel(Channel *channel) { poller_->removeChannel(channel); }
-    bool hasChannel(Channel *channel) { poller_->hasChannel(channel); }
+    void updateChannel(Channel *channel);
+    void removeChannel(Channel *channel);
+    bool hasChannel(Channel *channel);
 private:
     void handleRead();          // 执行wakeup
     void doPendingFunctor();    // 执行回调
