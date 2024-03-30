@@ -14,6 +14,7 @@ public:
     std::string toIpPort() const; // 获取IpPort
 
     struct sockaddr_in* getSockAddr(); // 获取Sockaddr
+    void setSockAddr(sockaddr_in addr) { addr_ = addr; }
 private:
     struct sockaddr_in addr_;
 };
