@@ -1,9 +1,8 @@
 #include "EventLoopThread.h"
 #include "Thread.h"
 #include "EventLoop.h"
-#include <mutex>
 
-EventLoopThread::EventLoopThread(ThreadInitCallback func, const std::string &name)
+EventLoopThread::EventLoopThread(const ThreadInitCallback &func, const std::string &name)
     :exiting_(false), loop_(nullptr),
     thread_(std::bind(&EventLoopThread::ThreadFunc, this), name),callback_(func){}
 

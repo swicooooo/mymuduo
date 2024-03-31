@@ -18,7 +18,7 @@ public:
     ~Acceptor();
 
     void listen();
-    bool listenning();
+    bool listenning() { return listenning_; }
     void setNewConnCallback(NewConnCallback cb) { newConnCallback_ = std::move(cb); }
 private:
     void handleRead();

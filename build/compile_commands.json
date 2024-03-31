@@ -7,6 +7,12 @@
 },
 {
   "directory": "/home/sw/Documents/mymuduo/build",
+  "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/CurrentThread.cc.o -c /home/sw/Documents/mymuduo/CurrentThread.cc",
+  "file": "/home/sw/Documents/mymuduo/CurrentThread.cc",
+  "output": "CMakeFiles/mymuduo.dir/CurrentThread.cc.o"
+},
+{
+  "directory": "/home/sw/Documents/mymuduo/build",
   "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/DefaultPoller.cc.o -c /home/sw/Documents/mymuduo/DefaultPoller.cc",
   "file": "/home/sw/Documents/mymuduo/DefaultPoller.cc",
   "output": "CMakeFiles/mymuduo.dir/DefaultPoller.cc.o"
@@ -25,6 +31,18 @@
 },
 {
   "directory": "/home/sw/Documents/mymuduo/build",
+  "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/EventLoopThread.cc.o -c /home/sw/Documents/mymuduo/EventLoopThread.cc",
+  "file": "/home/sw/Documents/mymuduo/EventLoopThread.cc",
+  "output": "CMakeFiles/mymuduo.dir/EventLoopThread.cc.o"
+},
+{
+  "directory": "/home/sw/Documents/mymuduo/build",
+  "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/EventLoopThreadPool.cc.o -c /home/sw/Documents/mymuduo/EventLoopThreadPool.cc",
+  "file": "/home/sw/Documents/mymuduo/EventLoopThreadPool.cc",
+  "output": "CMakeFiles/mymuduo.dir/EventLoopThreadPool.cc.o"
+},
+{
+  "directory": "/home/sw/Documents/mymuduo/build",
   "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/InetAddress.cc.o -c /home/sw/Documents/mymuduo/InetAddress.cc",
   "file": "/home/sw/Documents/mymuduo/InetAddress.cc",
   "output": "CMakeFiles/mymuduo.dir/InetAddress.cc.o"
@@ -37,9 +55,21 @@
 },
 {
   "directory": "/home/sw/Documents/mymuduo/build",
+  "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/Socket.cc.o -c /home/sw/Documents/mymuduo/Socket.cc",
+  "file": "/home/sw/Documents/mymuduo/Socket.cc",
+  "output": "CMakeFiles/mymuduo.dir/Socket.cc.o"
+},
+{
+  "directory": "/home/sw/Documents/mymuduo/build",
   "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/TcpServer.cc.o -c /home/sw/Documents/mymuduo/TcpServer.cc",
   "file": "/home/sw/Documents/mymuduo/TcpServer.cc",
   "output": "CMakeFiles/mymuduo.dir/TcpServer.cc.o"
+},
+{
+  "directory": "/home/sw/Documents/mymuduo/build",
+  "command": "/usr/bin/g++ -Dmymuduo_EXPORTS  -g -g -fPIC -o CMakeFiles/mymuduo.dir/Thread.cc.o -c /home/sw/Documents/mymuduo/Thread.cc",
+  "file": "/home/sw/Documents/mymuduo/Thread.cc",
+  "output": "CMakeFiles/mymuduo.dir/Thread.cc.o"
 },
 {
   "directory": "/home/sw/Documents/mymuduo/build",
