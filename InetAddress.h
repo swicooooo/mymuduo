@@ -8,6 +8,7 @@ class InetAddress
 public:
     explicit InetAddress(uint16_t port, std::string i = "127.0.0.1");
     explicit InetAddress(struct sockaddr_in &addr);
+    InetAddress() = default;
 
     std::string toIp() const; // 获取Ip
     uint16_t toPort() const;  // 获取port
