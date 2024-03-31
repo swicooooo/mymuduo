@@ -96,3 +96,13 @@
 3	744	1711678070653735873	CMakeFiles/mymuduo.dir/EPollPoller.cpp.o	a9cb64564af0ab09
 3	753	1711678070661738885	CMakeFiles/mymuduo.dir/EventLoop.cc.o	a61e729eea3ec7cc
 753	806	1711678070713758467	/home/sw/Documents/mymuduo/lib/libmymuduo.so	ce16f703a44e8eba
+1	4	0	clean	a31eedcededa8236
+2	21	1711788495108939010	CMakeFiles/mymuduo.dir/TcpServer.cc.o	532efbd84793a537
+2	235	1711788495321018841	CMakeFiles/mymuduo.dir/InetAddress.cc.o	22ed02006429c83a
+2	289	1711788495377039929	CMakeFiles/mymuduo.dir/Logger.cc.o	316404fa4f96c9a8
+2	382	1711788495469074573	CMakeFiles/mymuduo.dir/Timestamp.cc.o	3baec1f5044008a1
+1	459	1711788495545103191	CMakeFiles/mymuduo.dir/Channel.cc.o	defeaea0bdbbbca9
+2	490	1711788495577115241	CMakeFiles/mymuduo.dir/DefaultPoller.cc.o	8601418fd62f8e87
+2	635	1711788495721169466	CMakeFiles/mymuduo.dir/EPollPoller.cpp.o	a9cb64564af0ab09
+2	690	1711788495777190554	CMakeFiles/mymuduo.dir/EventLoop.cc.o	a61e729eea3ec7cc
+690	731	1711788495817205616	/home/sw/Documents/mymuduo/lib/libmymuduo.so	ce16f703a44e8eba
