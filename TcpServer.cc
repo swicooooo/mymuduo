@@ -1,8 +1,5 @@
 #include "TcpServer.h"
-#include "Acceptor.h"
-#include "EventLoopThreadPool.h"
 #include "Logger.h"
-#include <functional>
 
 EventLoop* checkNoNull(EventLoop *loop)
 {
@@ -12,10 +9,13 @@ EventLoop* checkNoNull(EventLoop *loop)
     return loop;
 }
 
-TcpServer::TcpServer(EventLoop *loop, const InetAddress &listenAddr, const std::string &nameArg,Option option)
-    : loop_(checkNoNull(loop)), ipPort_(listenAddr.toIpPort()), name_(nameArg), acceptor_(new Acceptor(loop,listenAddr,option==KReusePort)),
-threadPool_(new EventLoopThreadPool(loop,nameArg)),started_(0),nextConnId(1),
-connectionCallbck_(),messageCallback_()
+TcpServer::TcpServer(EventLoop *loop, InetAddress &listenAddr, const std::string &nameArg,Option option)
+    : loop_(checkNoNull(loop)), 
+        ipPort_(listenAddr.toIpPort()), name_(nameArg), 
+        acceptor_(new Acceptor(loop,listenAddr,option==KReusePort)),
+        threadPool_(new EventLoopThreadPool(loop,name_)),
+        started_(0),nextConnId(1),
+        connectionCallbck_(),messageCallback_()
 {
     acceptor_->setNewConnCallback(std::bind(&TcpServer::newConnection,this,std::placeholders::_1,std::placeholders::_2));
 }

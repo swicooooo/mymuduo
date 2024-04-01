@@ -2,7 +2,7 @@
 #include "EventLoop.h"
 #include "EventLoopThread.h"
 
-EventLoopThreadPool::EventLoopThreadPool(EventLoop *baseLoop, const std::string nameArg)
+EventLoopThreadPool::EventLoopThreadPool(EventLoop *baseLoop, const std::string &nameArg)
     :baseLoop_(baseLoop), name_(nameArg), started_(false),numThreads_(0), next_(0){}
 
 void EventLoopThreadPool::start(const ThreadInitCallback &cb)

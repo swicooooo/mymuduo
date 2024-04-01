@@ -1,12 +1,14 @@
 #pragma once
 
-#include "EventLoop.h"
 #include "Callbacks.h"
 #include "InetAddress.h"
 #include "Acceptor.h"
+#include "EventLoop.h"
+#include "EventLoopThread.h"
 #include "EventLoopThreadPool.h"
 
 #include <atomic>
+#include <memory>
 #include <unordered_map>
 
 class TcpServer
@@ -18,7 +20,7 @@ public:
         KNoReusePort,
         KReusePort
     };
-    TcpServer(EventLoop *loop, const InetAddress &listenAddr, const std::string &nameArg,Option option = KNoReusePort);
+    TcpServer(EventLoop *loop, InetAddress &listenAddr, const std::string &nameArg,Option option = KNoReusePort);
     ~TcpServer();
 
     void start();   // 开启服务监听

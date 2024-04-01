@@ -14,6 +14,7 @@ class Acceptor : noncopyable
 {
 public:
     using NewConnCallback = std::function<void(int, const InetAddress& peerAddr)>;
+    
     Acceptor(EventLoop *loop, InetAddress &listenAddr, bool reusePort);
     ~Acceptor();
 

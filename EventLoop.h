@@ -2,7 +2,6 @@
 
 #include <atomic>
 #include <functional>
-#include <sched.h>
 #include <vector>
 #include <memory>
 #include <mutex>
