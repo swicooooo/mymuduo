@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/workspace/mymuduo/Acceptor.cc" "/workspace/mymuduo/cmake-build-debug/CMakeFiles/mymuduo.dir/Acceptor.cc.o"
+  "/workspace/mymuduo/Buffer.cc" "/workspace/mymuduo/cmake-build-debug/CMakeFiles/mymuduo.dir/Buffer.cc.o"
   "/workspace/mymuduo/Channel.cc" "/workspace/mymuduo/cmake-build-debug/CMakeFiles/mymuduo.dir/Channel.cc.o"
   "/workspace/mymuduo/CurrentThread.cc" "/workspace/mymuduo/cmake-build-debug/CMakeFiles/mymuduo.dir/CurrentThread.cc.o"
   "/workspace/mymuduo/DefaultPoller.cc" "/workspace/mymuduo/cmake-build-debug/CMakeFiles/mymuduo.dir/DefaultPoller.cc.o"
@@ -15,6 +16,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/workspace/mymuduo/InetAddress.cc" "/workspace/mymuduo/cmake-build-debug/CMakeFiles/mymuduo.dir/InetAddress.cc.o"
   "/workspace/mymuduo/Logger.cc" "/workspace/mymuduo/cmake-build-debug/CMakeFiles/mymuduo.dir/Logger.cc.o"
   "/workspace/mymuduo/Socket.cc" "/workspace/mymuduo/cmake-build-debug/CMakeFiles/mymuduo.dir/Socket.cc.o"
+  "/workspace/mymuduo/TcpConnection.cc" "/workspace/mymuduo/cmake-build-debug/CMakeFiles/mymuduo.dir/TcpConnection.cc.o"
   "/workspace/mymuduo/TcpServer.cc" "/workspace/mymuduo/cmake-build-debug/CMakeFiles/mymuduo.dir/TcpServer.cc.o"
   "/workspace/mymuduo/Thread.cc" "/workspace/mymuduo/cmake-build-debug/CMakeFiles/mymuduo.dir/Thread.cc.o"
   "/workspace/mymuduo/Timestamp.cc" "/workspace/mymuduo/cmake-build-debug/CMakeFiles/mymuduo.dir/Timestamp.cc.o"

@@ -21,7 +21,7 @@ public:
     TcpServer(EventLoop *loop, const InetAddress &listenAddr, const std::string &nameArg,Option option = KNoReusePort);
     ~TcpServer();
 
-    void start();
+    void start();   // 开启服务监听
     void setThreadNums(int numThreads);
     void setThreadInitCallback(const ThreadInitCallback& cb) { threadInitCallback_ = cb; }
 
@@ -46,7 +46,7 @@ private:
     WriteCompleteCallbck writeCompleteCallbck_;
 
     ThreadInitCallback threadInitCallback_; // loop初始时的回调
-    std::atomic_int started_;
+    std::atomic_int started_;   // 确保只启动一次
     int nextConnId;
     ConnectionMap connectionMap_;   // 保存所有连接
 };

@@ -32,7 +32,7 @@ public:
     void quit();    // 退出循环
 
     Timestamp pollReturnTime() const{ return pollReturnTime_; }
-    bool isInLoopThread() const{ return threadId_ == CurrentThread::tid(); }   // 判断loop是否在自己的线程中
+    bool isInLoopThread() const{ return threadId_ == CurrentThread::tid(); }   // 判断loop是否在自己的线程中，用于区分mainLoop和subLoop， 当mainLoop监听到新连接时，会轮询选择一个subLoop唤醒执行newConnection回调
 
     void runInLoop(Functor cb);     // 在当前loop中执行cb
     void queueInLoop(Functor cb);   // 将cb放入队列，唤醒loop所在线程并执行cb
