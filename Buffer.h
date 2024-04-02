@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstddef>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -59,15 +60,20 @@ public:
     const char* peek() const{ return begin() + readerIndex_; }  
 
     /**
-     * 
+     * 获取数据  
     */
+    int readFd(int fd, int *saveErrno);
 
+    void append(const char *data, std::size_t len) {
+        ensureWriteableBytes(len);
+        std::copy(data, data+len, beginWrite());
+        writerIndex_ += len;
+    }
     void ensureWriteableBytes(std::size_t len) {
         if(writeableBytes() < len) {
             makeSpace(len);
         }
     }
-
     void makeSpace(std::size_t len) {
         // 总可写区间小于要写入数据长度,则直接扩容
         if(readerIndex_+writeableBytes() < len+KCheapPrepend) {
@@ -83,6 +89,8 @@ public:
 private:
     char* begin(){ return &*buffer_.begin(); }
     const char* begin() const{ return &*buffer_.begin(); }
+    char* beginWrite() { return begin()+writerIndex_; }
+    const char* beginWrite() const { return begin()+writerIndex_; }
 
     std::vector<char> buffer_;
     std::size_t readerIndex_;

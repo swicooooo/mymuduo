@@ -1,10 +1,10 @@
 #include "TcpServer.h"
 #include "Logger.h"
 
-EventLoop* checkNoNull(EventLoop *loop)
+static EventLoop* checkNoNull(EventLoop *loop)
 {
     if(loop == nullptr) {
-        LOG_FATAL("%s:%s:%d mainLoop is nil",__FILE__,__FUNCTION__,__LINE__);
+        LOG_FATAL("%s:%s:%d TcpServer Loop is nil",__FILE__,__FUNCTION__,__LINE__);
     }
     return loop;
 }
