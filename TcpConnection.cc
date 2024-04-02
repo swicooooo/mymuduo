@@ -2,6 +2,7 @@
 #include "Logger.h"
 #include "Socket.h"
 #include "Channel.h"
+
 #include <functional>
 
 static EventLoop* checkNoNull(EventLoop *loop)
@@ -21,8 +22,9 @@ TcpConnection::TcpConnection(EventLoop *loop,const std::string nameArg, int sock
     channel_->setWriteEventCallback(std::bind(&TcpConnection::handleWrite,this));
     channel_->setErrorEventCallback(std::bind(&TcpConnection::handleError,this));
     channel_->setCloseEventCallback(std::bind(&TcpConnection::handleClose,this));
+
+    socket_->setKeepAlive(true);
     LOG_INFO("TcpConnection::ctor[%s] at fd=%d \n", name_.c_str(),sockfd);
-    // socket_->setKeepAlive(true);
 }
 TcpConnection::~TcpConnection()
 {

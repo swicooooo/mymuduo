@@ -19,6 +19,8 @@ Acceptor::Acceptor(EventLoop *loop, InetAddress &listenAddr, bool reusePort)
     : listenning_(false), loop_(loop), acceptSock_(createNonBlocking()), acceptChannel_(loop, acceptSock_.fd())
 {
     // TODO reuse socket option
+    acceptSock_.setReuseAddr(true);
+    acceptSock_.setReuseAddr(true);
     acceptSock_.bindAddress(listenAddr);
     acceptChannel_.setReadEventCallback(std::bind(&Acceptor::handleRead, this));
 }

@@ -12,7 +12,11 @@ public:
     void listen();
     int accept(InetAddress *peerAddr);
     int fd() const{ return sockfd_; }
-    // void setReusePort(); ...
+
+    void setTcpNoDelay(bool on);
+    void setReuseAddr(bool on);
+    void setReusePort(bool on);
+    void setKeepAlive(bool on); 
 private:
     int sockfd_;
 };
