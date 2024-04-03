@@ -4,10 +4,10 @@
 #include <memory>
 
 class Buffer;
-class TcpConnction;
+class TcpConnection;
 class Timestamp;
 
-using TcpConnctionPtr = std::shared_ptr<TcpConnction>;
+using TcpConnctionPtr = std::shared_ptr<TcpConnection>;
 using ConnectionCallbck = std::function<void(const TcpConnctionPtr&)>;
 using CloseCallbck = std::function<void(const TcpConnctionPtr&)>;
 using WriteCompleteCallbck = std::function<void(const TcpConnctionPtr&)>;

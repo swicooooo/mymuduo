@@ -33,8 +33,8 @@ public:
 
 private:
     void newConnection(int sockfd, const InetAddress &listenAddr);
-    void removeConnection(const TcpConnction &conn);
-    void removeConnectionInLoop(const TcpConnction &conn);
+    void removeConnection(const TcpConnctionPtr &conn);
+    void removeConnectionInLoop(const TcpConnctionPtr &conn);
 
     EventLoop *loop_;   //baseLoop,用户提供
     const std::string ipPort_;

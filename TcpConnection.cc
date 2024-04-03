@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <functional>
 #include <sys/socket.h>
+#include <muduo/net/Callbacks.h>
 
 static EventLoop* checkNoNull(EventLoop *loop)
 {
@@ -39,10 +40,10 @@ void TcpConnection::handleRead(Timestamp receiveTime)
 {
     int savedErrno = 0;
     int n = inputBuffer_.readFd(channel_->fd(), &savedErrno);
-    if(n > 0) { // 
+    if(n > 0) { // fd有数据到达
         messageCallback_(shared_from_this(),&inputBuffer_,receiveTime);
     }
-    else if(n == 0) {   //
+    else if(n == 0) {   // 对端关闭
         handleClose();
     }    
     else {
@@ -93,7 +94,7 @@ void TcpConnection::handleError()
 void TcpConnection::handleClose()
 {
     LOG_ERROR("TcpConnection handleClose fd=%d state=%d \n", channel_->fd(),(int)state_);
-    setState(KDisconnecting);
+    setState(KDisconnected);
     channel_->disableAll();
     // 处理对端关闭的逻辑
     connectionCallbck_(shared_from_this());

@@ -3,7 +3,7 @@
 #include <cerrno>
 #include <sys/types.h>
 #include <sys/uio.h>
-#include <sys/socket.h>
+#include <unistd.h>
 
 // readv能使用多段非连续的空间存储数据
 int Buffer::readFd(int fd, int *saveErrno)
