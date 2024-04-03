@@ -55,6 +55,8 @@ build CMakeFiles/mymuduo.dir/Acceptor.cc.o: CXX_COMPILER__mymuduo_unscanned_Debu
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 build CMakeFiles/mymuduo.dir/Buffer.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug /home/sw/Documents/mymuduo/Buffer.cc || cmake_object_order_depends_target_mymuduo
   DEFINES = -Dmymuduo_EXPORTS
@@ -62,6 +64,8 @@ build CMakeFiles/mymuduo.dir/Buffer.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug 
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 build CMakeFiles/mymuduo.dir/Channel.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug /home/sw/Documents/mymuduo/Channel.cc || cmake_object_order_depends_target_mymuduo
   DEFINES = -Dmymuduo_EXPORTS
@@ -69,6 +73,8 @@ build CMakeFiles/mymuduo.dir/Channel.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 build CMakeFiles/mymuduo.dir/CurrentThread.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug /home/sw/Documents/mymuduo/CurrentThread.cc || cmake_object_order_depends_target_mymuduo
   DEFINES = -Dmymuduo_EXPORTS
@@ -76,6 +82,8 @@ build CMakeFiles/mymuduo.dir/CurrentThread.cc.o: CXX_COMPILER__mymuduo_unscanned
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 build CMakeFiles/mymuduo.dir/DefaultPoller.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug /home/sw/Documents/mymuduo/DefaultPoller.cc || cmake_object_order_depends_target_mymuduo
   DEFINES = -Dmymuduo_EXPORTS
@@ -83,6 +91,8 @@ build CMakeFiles/mymuduo.dir/DefaultPoller.cc.o: CXX_COMPILER__mymuduo_unscanned
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 build CMakeFiles/mymuduo.dir/EPollPoller.cpp.o: CXX_COMPILER__mymuduo_unscanned_Debug /home/sw/Documents/mymuduo/EPollPoller.cpp || cmake_object_order_depends_target_mymuduo
   DEFINES = -Dmymuduo_EXPORTS
@@ -90,6 +100,8 @@ build CMakeFiles/mymuduo.dir/EPollPoller.cpp.o: CXX_COMPILER__mymuduo_unscanned_
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 build CMakeFiles/mymuduo.dir/EventLoop.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug /home/sw/Documents/mymuduo/EventLoop.cc || cmake_object_order_depends_target_mymuduo
   DEFINES = -Dmymuduo_EXPORTS
@@ -97,6 +109,8 @@ build CMakeFiles/mymuduo.dir/EventLoop.cc.o: CXX_COMPILER__mymuduo_unscanned_Deb
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 build CMakeFiles/mymuduo.dir/EventLoopThread.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug /home/sw/Documents/mymuduo/EventLoopThread.cc || cmake_object_order_depends_target_mymuduo
   DEFINES = -Dmymuduo_EXPORTS
@@ -104,6 +118,8 @@ build CMakeFiles/mymuduo.dir/EventLoopThread.cc.o: CXX_COMPILER__mymuduo_unscann
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 build CMakeFiles/mymuduo.dir/EventLoopThreadPool.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug /home/sw/Documents/mymuduo/EventLoopThreadPool.cc || cmake_object_order_depends_target_mymuduo
   DEFINES = -Dmymuduo_EXPORTS
@@ -111,6 +127,8 @@ build CMakeFiles/mymuduo.dir/EventLoopThreadPool.cc.o: CXX_COMPILER__mymuduo_uns
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 build CMakeFiles/mymuduo.dir/InetAddress.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug /home/sw/Documents/mymuduo/InetAddress.cc || cmake_object_order_depends_target_mymuduo
   DEFINES = -Dmymuduo_EXPORTS
@@ -118,6 +136,8 @@ build CMakeFiles/mymuduo.dir/InetAddress.cc.o: CXX_COMPILER__mymuduo_unscanned_D
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 build CMakeFiles/mymuduo.dir/Logger.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug /home/sw/Documents/mymuduo/Logger.cc || cmake_object_order_depends_target_mymuduo
   DEFINES = -Dmymuduo_EXPORTS
@@ -125,6 +145,8 @@ build CMakeFiles/mymuduo.dir/Logger.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug 
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 build CMakeFiles/mymuduo.dir/Socket.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug /home/sw/Documents/mymuduo/Socket.cc || cmake_object_order_depends_target_mymuduo
   DEFINES = -Dmymuduo_EXPORTS
@@ -132,6 +154,8 @@ build CMakeFiles/mymuduo.dir/Socket.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug 
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 build CMakeFiles/mymuduo.dir/TcpConnection.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug /home/sw/Documents/mymuduo/TcpConnection.cc || cmake_object_order_depends_target_mymuduo
   DEFINES = -Dmymuduo_EXPORTS
@@ -139,6 +163,8 @@ build CMakeFiles/mymuduo.dir/TcpConnection.cc.o: CXX_COMPILER__mymuduo_unscanned
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 build CMakeFiles/mymuduo.dir/TcpServer.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug /home/sw/Documents/mymuduo/TcpServer.cc || cmake_object_order_depends_target_mymuduo
   DEFINES = -Dmymuduo_EXPORTS
@@ -146,6 +172,8 @@ build CMakeFiles/mymuduo.dir/TcpServer.cc.o: CXX_COMPILER__mymuduo_unscanned_Deb
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 build CMakeFiles/mymuduo.dir/Thread.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug /home/sw/Documents/mymuduo/Thread.cc || cmake_object_order_depends_target_mymuduo
   DEFINES = -Dmymuduo_EXPORTS
@@ -153,6 +181,8 @@ build CMakeFiles/mymuduo.dir/Thread.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug 
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 build CMakeFiles/mymuduo.dir/Timestamp.cc.o: CXX_COMPILER__mymuduo_unscanned_Debug /home/sw/Documents/mymuduo/Timestamp.cc || cmake_object_order_depends_target_mymuduo
   DEFINES = -Dmymuduo_EXPORTS
@@ -160,6 +190,8 @@ build CMakeFiles/mymuduo.dir/Timestamp.cc.o: CXX_COMPILER__mymuduo_unscanned_Deb
   FLAGS = -g -g -fPIC
   OBJECT_DIR = CMakeFiles/mymuduo.dir
   OBJECT_FILE_DIR = CMakeFiles/mymuduo.dir
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 
 # =============================================================================
@@ -176,8 +208,9 @@ build /home/sw/Documents/mymuduo/lib/libmymuduo.so: CXX_SHARED_LIBRARY_LINKER__m
   PRE_LINK = :
   SONAME = libmymuduo.so
   SONAME_FLAG = -Wl,-soname,
+  TARGET_COMPILE_PDB = CMakeFiles/mymuduo.dir/
   TARGET_FILE = /home/sw/Documents/mymuduo/lib/libmymuduo.so
-  TARGET_PDB = mymuduo.so.dbg
+  TARGET_PDB = /home/sw/Documents/mymuduo/lib/libmymuduo.pdb
 
 
 #############################################
@@ -226,14 +259,14 @@ build all: phony /home/sw/Documents/mymuduo/lib/libmymuduo.so
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/sw/Documents/mymuduo/CMakeLists.txt /usr/local/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/local/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/local/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/local/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/local/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/local/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.20240128-gf434d65/CMakeCCompiler.cmake CMakeFiles/3.28.20240128-gf434d65/CMakeCXXCompiler.cmake CMakeFiles/3.28.20240128-gf434d65/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/sw/Documents/mymuduo/CMakeLists.txt /usr/local/share/cmake-3.28/Modules/CMakeCCompiler.cmake.in /usr/local/share/cmake-3.28/Modules/CMakeCCompilerABI.c /usr/local/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in /usr/local/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp /usr/local/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/local/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake /usr/local/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake /usr/local/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake /usr/local/share/cmake-3.28/Modules/CMakeDetermineCompileFeatures.cmake /usr/local/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake /usr/local/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake /usr/local/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake /usr/local/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake /usr/local/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/local/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/local/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeNinjaFindMake.cmake /usr/local/share/cmake-3.28/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/local/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake /usr/local/share/cmake-3.28/Modules/CMakeParseLibraryArchitecture.cmake /usr/local/share/cmake-3.28/Modules/CMakeSystem.cmake.in /usr/local/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/local/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake /usr/local/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake /usr/local/share/cmake-3.28/Modules/CMakeTestCompilerCommon.cmake /usr/local/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/CrayClang-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU-FindBinUtils.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/local/share/cmake-3.28/Modules/Compiler/HP-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /usr/local/share/cmake-3.28/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/local/share/cmake-3.28/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/LCC-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/OrangeC-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/TI-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Tasking-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/XL-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/zOS-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Internal/CMakeDetermineLinkerId.cmake /usr/local/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-Determine-CXX.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/local/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.20240128-gf434d65/CMakeCCompiler.cmake CMakeFiles/3.28.20240128-gf434d65/CMakeCXXCompiler.cmake CMakeFiles/3.28.20240128-gf434d65/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/sw/Documents/mymuduo/CMakeLists.txt /usr/local/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/local/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/local/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/local/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/local/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/local/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.20240128-gf434d65/CMakeCCompiler.cmake CMakeFiles/3.28.20240128-gf434d65/CMakeCXXCompiler.cmake CMakeFiles/3.28.20240128-gf434d65/CMakeSystem.cmake: phony
+build /home/sw/Documents/mymuduo/CMakeLists.txt /usr/local/share/cmake-3.28/Modules/CMakeCCompiler.cmake.in /usr/local/share/cmake-3.28/Modules/CMakeCCompilerABI.c /usr/local/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in /usr/local/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp /usr/local/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/local/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake /usr/local/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake /usr/local/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake /usr/local/share/cmake-3.28/Modules/CMakeDetermineCompileFeatures.cmake /usr/local/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake /usr/local/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake /usr/local/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake /usr/local/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake /usr/local/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/local/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/local/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeNinjaFindMake.cmake /usr/local/share/cmake-3.28/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/local/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake /usr/local/share/cmake-3.28/Modules/CMakeParseLibraryArchitecture.cmake /usr/local/share/cmake-3.28/Modules/CMakeSystem.cmake.in /usr/local/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/local/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/local/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake /usr/local/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake /usr/local/share/cmake-3.28/Modules/CMakeTestCompilerCommon.cmake /usr/local/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/CrayClang-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU-FindBinUtils.cmake /usr/local/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/local/share/cmake-3.28/Modules/Compiler/HP-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /usr/local/share/cmake-3.28/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/local/share/cmake-3.28/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/LCC-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/OrangeC-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/TI-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Tasking-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/XL-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/zOS-C-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.28/Modules/Internal/CMakeDetermineLinkerId.cmake /usr/local/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-Determine-CXX.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/local/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/local/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.20240128-gf434d65/CMakeCCompiler.cmake CMakeFiles/3.28.20240128-gf434d65/CMakeCXXCompiler.cmake CMakeFiles/3.28.20240128-gf434d65/CMakeSystem.cmake: phony
 
 
 #############################################
