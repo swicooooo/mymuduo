@@ -3,7 +3,11 @@
 #include "Socket.h"
 #include "Channel.h"
 
+#include <asm-generic/socket.h>
+#include <cerrno>
+#include <cstdlib>
 #include <functional>
+#include <sys/socket.h>
 
 static EventLoop* checkNoNull(EventLoop *loop)
 {
@@ -29,4 +33,68 @@ TcpConnection::TcpConnection(EventLoop *loop,const std::string nameArg, int sock
 TcpConnection::~TcpConnection()
 {
     LOG_INFO("TcpConnection::dtor[%s] at fd=%d state=%d \n", name_.c_str(),channel_->fd(),(int)state_);
+}
+
+void TcpConnection::handleRead(Timestamp receiveTime)
+{
+    int savedErrno = 0;
+    int n = inputBuffer_.readFd(channel_->fd(), &savedErrno);
+    if(n > 0) { // 
+        messageCallback_(shared_from_this(),&inputBuffer_,receiveTime);
+    }
+    else if(n == 0) {   //
+        handleClose();
+    }    
+    else {
+        errno = savedErrno;
+        LOG_ERROR("TcpConnection::handleRead \n");
+        handleError();
+    }
+
+}
+void TcpConnection::handleWrite()
+{
+    if(channel_->isWriting()) {
+        int savedErrno = 0;
+        int n = outputBuffer_.writeFd(channel_->fd(), &savedErrno);
+        if(n > 0) { // 有数据可写
+            outputBuffer_.retrieve(n);
+            if(outputBuffer_.readableBytes() == 0) {    // 数据写完
+                channel_->disableWriting();
+                if(writeCompleteCallbck_) {
+                    writeCompleteCallbck_(shared_from_this());
+                }
+                if(state_ == KDisconnecting) {
+                    shutdownInLoop();
+                }
+            }
+        }
+        else {
+            LOG_ERROR("TcpConnection::handleWrite \n");
+        }
+    }
+    else {
+        LOG_ERROR("TcpConnection fd=%d is down, no more writing \n",channel_->fd());
+    }
+
+}
+void TcpConnection::handleError()
+{
+    int err;
+    int optval = 0;
+    socklen_t optlen = sizeof optval;
+    if(::getsockopt(channel_->fd(), SOL_SOCKET, SO_ERROR, &optval, &optlen) < 0) {
+        err = errno;
+    }else {
+        err = optval;
+    }
+    LOG_ERROR("TcpConnection handleError name:%s-SO_ERROR:%d \n", name_.c_str(),err);
+}
+void TcpConnection::handleClose()
+{
+    LOG_ERROR("TcpConnection handleClose fd=%d state=%d \n", channel_->fd(),(int)state_);
+    setState(KDisconnecting);
+    channel_->disableAll();
+    // 处理对端关闭的逻辑
+    connectionCallbck_(shared_from_this());
 }

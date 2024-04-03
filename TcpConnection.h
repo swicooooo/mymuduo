@@ -33,6 +33,7 @@ public:
 
 private:
     enum StateE { KDisconnected, KConnecting, KConnected, KDisconnecting };
+    void setState(StateE state) { state_ = state; }
     // Channel所需要处理的事件类型
     void handleRead(Timestamp receiveTime);
     void handleWrite();

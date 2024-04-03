@@ -1,7 +1,9 @@
 #include "Buffer.h"
 
+#include <cerrno>
 #include <sys/types.h>
 #include <sys/uio.h>
+#include <sys/socket.h>
 
 // readv能使用多段非连续的空间存储数据
 int Buffer::readFd(int fd, int *saveErrno)
@@ -26,6 +28,15 @@ int Buffer::readFd(int fd, int *saveErrno)
     else {  // 多余的存储在extraBuf
         writerIndex_ = buffer_.size();
         append(extraBuf, n-writeable);
+    }
+    return n;
+}
+
+int Buffer::writeFd(int fd, int *saveErrno)
+{
+    int n = ::write(fd, peek(), readableBytes());   
+    if(n < 0) {
+        *saveErrno = errno;
     }
     return n;
 }

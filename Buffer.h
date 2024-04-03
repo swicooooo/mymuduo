@@ -14,8 +14,8 @@
 /// +-------------------+------------------+------------------+
 /// |                   |                  |                  |
 /// 0      <=      readerIndex   <=   writerIndex    <=     size
-/// @endcode
 class Buffer
+/// @endcode
 {
 public:
     static const std::size_t KCheapPrepend = 8;
@@ -63,6 +63,7 @@ public:
      * 获取数据  
     */
     int readFd(int fd, int *saveErrno);
+    int writeFd(int fd, int *saveErrno);
 
     void append(const char *data, std::size_t len) {
         ensureWriteableBytes(len);
