@@ -1,5 +1,4 @@
 #include "Timestamp.h"
-#include <muduo/base/Timestamp.h>
 
 #include <ctime>
 #include <iomanip>

@@ -12,7 +12,7 @@ void EventLoopThreadPool::start(const ThreadInitCallback &cb)
     // 多loop时, 创建多个EventLoopThread
     for (size_t i = 0; i < numThreads_; i++) {
         char buf[name_.size() + 32];
-        snprintf(buf, sizeof buf, "%s %d", name_.c_str(), i);
+        snprintf(buf, sizeof buf, "%s %ld", name_.c_str(), i);
         EventLoopThread *t = new EventLoopThread(cb,buf);
         threads_.push_back(std::unique_ptr<EventLoopThread>(t));    // 不能使用make_unique和t 会导致赋值构造
         loops_.push_back(t->startLoop());

@@ -8,7 +8,6 @@
 #include <cstdlib>
 #include <functional>
 #include <sys/socket.h>
-#include <muduo/net/Callbacks.h>
 
 static EventLoop* checkNoNull(EventLoop *loop)
 {
