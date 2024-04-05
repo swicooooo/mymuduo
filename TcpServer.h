@@ -15,7 +15,7 @@ class TcpServer
 {
 public:
     using ThreadInitCallback = std::function<void(EventLoop*)>;
-    using ConnectionMap = std::unordered_map<std::string, TcpConnctionPtr>;
+    using ConnectionMap = std::unordered_map<std::string, TcpConnectionPtr>;
     enum Option {
         KNoReusePort,
         KReusePort
@@ -29,12 +29,12 @@ public:
 
     void setConnectionCallbck(const ConnectionCallbck &cb) { connectionCallbck_ = cb; }
     void setMessageCallback(const MessageCallback &cb) { messageCallback_ = cb; }
-    void setWriteCompleteCallbck(const WriteCompleteCallbck &cb) { writeCompleteCallbck_ = cb; }
+    void setWriteCompleteCallback(const WriteCompleteCallback &cb) { WriteCompleteCallback_ = cb; }
 
 private:
     void newConnection(int sockfd, const InetAddress &listenAddr);
-    void removeConnection(const TcpConnctionPtr &conn);
-    void removeConnectionInLoop(const TcpConnctionPtr &conn);
+    void removeConnection(const TcpConnectionPtr &conn);
+    void removeConnectionInLoop(const TcpConnectionPtr &conn);
 
     EventLoop *loop_;   //baseLoop,用户提供
     const std::string ipPort_;
@@ -45,7 +45,7 @@ private:
     // 用户行为触发相应回调函数
     ConnectionCallbck connectionCallbck_;
     MessageCallback messageCallback_;
-    WriteCompleteCallbck writeCompleteCallbck_;
+    WriteCompleteCallback WriteCompleteCallback_;
 
     ThreadInitCallback threadInitCallback_; // loop初始时的回调
     std::atomic_int started_;   // 确保只启动一次

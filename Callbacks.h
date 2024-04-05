@@ -7,9 +7,9 @@ class Buffer;
 class TcpConnection;
 class Timestamp;
 
-using TcpConnctionPtr = std::shared_ptr<TcpConnection>;
-using ConnectionCallbck = std::function<void(const TcpConnctionPtr&)>;
-using CloseCallbck = std::function<void(const TcpConnctionPtr&)>;
-using WriteCompleteCallbck = std::function<void(const TcpConnctionPtr&)>;
-using MessageCallback = std::function<void(const TcpConnctionPtr&, Buffer*, Timestamp)>;
-using HighWaterMarkCallback = std::function<void(const TcpConnctionPtr&, std::size_t)>;
+using TcpConnectionPtr = std::shared_ptr<TcpConnection>;
+using ConnectionCallbck = std::function<void(const TcpConnectionPtr&)>;
+using CloseCallback = std::function<void(const TcpConnectionPtr&)>;
+using WriteCompleteCallback = std::function<void(const TcpConnectionPtr&)>;
+using MessageCallback = std::function<void(const TcpConnectionPtr&, Buffer*, Timestamp)>;
+using HighWaterMarkCallback = std::function<void(const TcpConnectionPtr&, std::size_t)>;

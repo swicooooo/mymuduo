@@ -2,6 +2,7 @@
 #include "Logger.h"
 #include "Socket.h"
 #include "Channel.h"
+#include "EventLoop.h"
 
 #include <asm-generic/socket.h>
 #include <cerrno>
@@ -35,6 +36,17 @@ TcpConnection::~TcpConnection()
     LOG_INFO("TcpConnection::dtor[%s] at fd=%d state=%d \n", name_.c_str(),channel_->fd(),(int)state_);
 }
 
+void TcpConnection::send(const std::string &buf)
+{
+    if(state_ == KConnected) {
+        if(loop_->isInLoopThread()) {
+            sendInLoop(buf.c_str(), buf.size());
+        }else{
+            loop_->queueInLoop(std::bind(&TcpConnection::sendInLoop, this, buf.c_str(), buf.size()));
+        }
+    }
+}
+
 void TcpConnection::handleRead(Timestamp receiveTime)
 {
     int savedErrno = 0;
@@ -61,8 +73,8 @@ void TcpConnection::handleWrite()
             outputBuffer_.retrieve(n);
             if(outputBuffer_.readableBytes() == 0) {    // 数据写完
                 channel_->disableWriting();
-                if(writeCompleteCallbck_) {
-                    writeCompleteCallbck_(shared_from_this());
+                if(WriteCompleteCallback_) {
+                    WriteCompleteCallback_(shared_from_this());
                 }
                 if(state_ == KDisconnecting) {
                     shutdownInLoop();
@@ -97,4 +109,51 @@ void TcpConnection::handleClose()
     channel_->disableAll();
     // 处理对端关闭的逻辑
     connectionCallbck_(shared_from_this());
+}
+
+/// @brief  如果缓冲区没有数据，则发送新数据，如果有则先发送缓冲区数据
+/// @param msg 
+/// @param len 
+void TcpConnection::sendInLoop(const char *msg, int len)
+{
+    ssize_t nwrote =0;
+    size_t remaining = len;
+    bool faultError = false;
+
+    if(state_ == KDisconnected) {
+        LOG_ERROR("disconnected, give up writing!");
+    }
+    // channel第一次写数据，并且缓冲区没有待发送数据
+    if(!channel_->isWriting() && outputBuffer_.readableBytes()==0) {
+        nwrote = ::write(channel_->fd(), msg, len);
+
+        if(nwrote >= 0) {
+            remaining = len - nwrote;
+            if(remaining == 0 && WriteCompleteCallback_) {
+                loop_->queueInLoop(std::bind(WriteCompleteCallback_, shared_from_this()));
+            }
+        }else{
+            nwrote = 0;
+            if(errno != EWOULDBLOCK) {  // 阻塞返回
+                LOG_ERROR("TcpConnection::sendInLoop");
+                if(errno != EPIPE || errno != ECONNRESET) { // 传输出错
+                    faultError = true;
+                }
+            }
+        }
+    }
+
+    // 数据未发送完全，剩余的数据存入outputBuffer,并且通知poller注册epollout事件，来持续监听是否发送完全
+    if(!faultError && remaining>0) {
+        size_t oldLen = outputBuffer_.readableBytes();
+        // 如果oldLen没有触发高水位线回调，则调用它
+        if(oldLen+remaining > highWaterMark_ && oldLen<highWaterMark_ && highWaterMarkCallback_) {
+            loop_->queueInLoop(std::bind(highWaterMarkCallback_, shared_from_this(), oldLen+remaining));
+        }
+
+        outputBuffer_.append(msg+nwrote, remaining);
+        if(!channel_->isWriting()) {
+            channel_->enableWriting();
+        }
+    }
 }

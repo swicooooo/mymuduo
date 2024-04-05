@@ -19,6 +19,7 @@ public:
     ~TcpConnection();
 
     void send(const char *msg, int len);
+    void send(const std::string &buf);
     void shutdown();
 
     bool connected() const{ return state_ == KConnected; }
@@ -27,8 +28,8 @@ public:
 
     void setConnectionCallbck(const ConnectionCallbck &cb) { connectionCallbck_ = cb; }
     void setMessageCallback(const MessageCallback &cb) { messageCallback_ = cb; }
-    void setWriteCompleteCallbck(const WriteCompleteCallbck &cb) { writeCompleteCallbck_ = cb; }
-    void setCloseCallbck(const CloseCallbck &cb) { closeCallbck_ = cb; }
+    void setWriteCompleteCallback(const WriteCompleteCallback &cb) { WriteCompleteCallback_ = cb; }
+    void setCloseCallback(const CloseCallback &cb) { CloseCallback_ = cb; }
     void setHighWaterMarkCallback(const HighWaterMarkCallback &cb, std::size_t highWaterMark) { highWaterMarkCallback_ = cb; highWaterMark_ = highWaterMark; }
 
 private:
@@ -56,11 +57,11 @@ private:
     // 从TcpServer传来的回调
     ConnectionCallbck connectionCallbck_;
     MessageCallback messageCallback_;
-    WriteCompleteCallbck writeCompleteCallbck_;
-    CloseCallbck closeCallbck_;    
+    WriteCompleteCallback WriteCompleteCallback_;
+    CloseCallback CloseCallback_;    
     HighWaterMarkCallback highWaterMarkCallback_; // 设置发送方的水位线，保证发送和接收的稳定
     std::size_t highWaterMark_;
 
-    Buffer inputBuffer_;
-    Buffer outputBuffer_;
+    Buffer inputBuffer_;    // 接收缓冲区
+    Buffer outputBuffer_;   // 发送缓冲区
 };
