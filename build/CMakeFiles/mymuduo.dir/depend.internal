@@ -91,6 +91,7 @@ CMakeFiles/mymuduo.dir/TcpConnection.cc.o
  /e/ubuntu/mymuduo/noncopyable.h
 CMakeFiles/mymuduo.dir/TcpServer.cc.o
  /e/ubuntu/mymuduo/Acceptor.h
+ /e/ubuntu/mymuduo/Buffer.h
  /e/ubuntu/mymuduo/Callbacks.h
  /e/ubuntu/mymuduo/Channel.h
  /e/ubuntu/mymuduo/CurrentThread.h
@@ -100,6 +101,7 @@ CMakeFiles/mymuduo.dir/TcpServer.cc.o
  /e/ubuntu/mymuduo/InetAddress.h
  /e/ubuntu/mymuduo/Logger.h
  /e/ubuntu/mymuduo/Socket.h
+ /e/ubuntu/mymuduo/TcpConnection.h
  /e/ubuntu/mymuduo/TcpServer.cc
  /e/ubuntu/mymuduo/TcpServer.h
  /e/ubuntu/mymuduo/Thread.h

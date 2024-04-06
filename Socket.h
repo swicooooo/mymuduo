@@ -13,6 +13,8 @@ public:
     int accept(InetAddress *peerAddr);
     int fd() const{ return sockfd_; }
 
+    void shutdownWrite();
+
     void setTcpNoDelay(bool on);
     void setReuseAddr(bool on);
     void setReusePort(bool on);

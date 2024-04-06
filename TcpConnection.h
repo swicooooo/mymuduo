@@ -18,7 +18,6 @@ public:
     TcpConnection(EventLoop *loop,const std::string nameArg, int sockfd,const InetAddress &localAddr, const InetAddress &peerAddr);
     ~TcpConnection();
 
-    void send(const char *msg, int len);
     void send(const std::string &buf);
     void shutdown();
 
@@ -28,10 +27,12 @@ public:
 
     void setConnectionCallbck(const ConnectionCallbck &cb) { connectionCallbck_ = cb; }
     void setMessageCallback(const MessageCallback &cb) { messageCallback_ = cb; }
-    void setWriteCompleteCallback(const WriteCompleteCallback &cb) { WriteCompleteCallback_ = cb; }
-    void setCloseCallback(const CloseCallback &cb) { CloseCallback_ = cb; }
+    void setWriteCompleteCallback(const WriteCompleteCallback &cb) { writeCompleteCallback_ = cb; }
+    void setCloseCallback(const CloseCallback &cb) { closeCallback_ = cb; }
     void setHighWaterMarkCallback(const HighWaterMarkCallback &cb, std::size_t highWaterMark) { highWaterMarkCallback_ = cb; highWaterMark_ = highWaterMark; }
 
+    EventLoop* getLoop() const{ return loop_; }
+    std::string name() const{ return name_; }
 private:
     enum StateE { KDisconnected, KConnecting, KConnected, KDisconnecting };
     void setState(StateE state) { state_ = state; }
@@ -57,8 +58,8 @@ private:
     // 从TcpServer传来的回调
     ConnectionCallbck connectionCallbck_;
     MessageCallback messageCallback_;
-    WriteCompleteCallback WriteCompleteCallback_;
-    CloseCallback CloseCallback_;    
+    WriteCompleteCallback writeCompleteCallback_;
+    CloseCallback closeCallback_;    
     HighWaterMarkCallback highWaterMarkCallback_; // 设置发送方的水位线，保证发送和接收的稳定
     std::size_t highWaterMark_;
 

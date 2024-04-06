@@ -35,6 +35,13 @@ int Socket::accept(InetAddress *peerAddr)
     return connfd;
 }
 
+void Socket::shutdownWrite()
+{
+    if(::shutdown(sockfd_,SHUT_WR) < 0) {
+        LOG_ERROR("Socket::shutdownWrite");
+    }
+}
+
 void Socket::setTcpNoDelay(bool on)
 {
     int optval = on ? 1 : 0;

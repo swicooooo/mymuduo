@@ -6,6 +6,7 @@
 #include "EventLoop.h"
 #include "EventLoopThread.h"
 #include "EventLoopThreadPool.h"
+#include "TcpConnection.h"
 
 #include <atomic>
 #include <memory>
@@ -29,10 +30,10 @@ public:
 
     void setConnectionCallbck(const ConnectionCallbck &cb) { connectionCallbck_ = cb; }
     void setMessageCallback(const MessageCallback &cb) { messageCallback_ = cb; }
-    void setWriteCompleteCallback(const WriteCompleteCallback &cb) { WriteCompleteCallback_ = cb; }
+    void setWriteCompleteCallback(const WriteCompleteCallback &cb) { writeCompleteCallback_ = cb; }
 
 private:
-    void newConnection(int sockfd, const InetAddress &listenAddr);
+    void newConnection(int sockfd, const InetAddress &peerAddr);
     void removeConnection(const TcpConnectionPtr &conn);
     void removeConnectionInLoop(const TcpConnectionPtr &conn);
 
@@ -45,10 +46,10 @@ private:
     // 用户行为触发相应回调函数
     ConnectionCallbck connectionCallbck_;
     MessageCallback messageCallback_;
-    WriteCompleteCallback WriteCompleteCallback_;
+    WriteCompleteCallback writeCompleteCallback_;
 
     ThreadInitCallback threadInitCallback_; // loop初始时的回调
     std::atomic_int started_;   // 确保只启动一次
     int nextConnId;
-    ConnectionMap connectionMap_;   // 保存所有连接
+    ConnectionMap connections_;   // 保存所有连接
 };

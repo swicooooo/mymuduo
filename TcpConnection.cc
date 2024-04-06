@@ -47,6 +47,34 @@ void TcpConnection::send(const std::string &buf)
     }
 }
 
+void TcpConnection::shutdown()
+{
+    if(state_ == KConnected) {
+        setState(KDisconnecting);
+        loop_->runInLoop(std::bind(&TcpConnection::shutdownInLoop, this));
+    }
+}
+
+void TcpConnection::connectEstablished()
+{
+    setState(KConnected);
+    channel_->tie(shared_from_this()); // 弱指针持有TcpConnection对象，防止调用时未知错误
+    channel_->enableReading();
+
+    connectionCallbck_(shared_from_this());
+}
+
+void TcpConnection::connectDestroyed()
+{
+    if(state_ == KConnected) {
+        setState(KDisconnected);
+        channel_->disableAll();
+
+        connectionCallbck_(shared_from_this());
+    }
+    channel_->remove(); // 从poller中删除channel
+}
+
 void TcpConnection::handleRead(Timestamp receiveTime)
 {
     int savedErrno = 0;
@@ -73,10 +101,10 @@ void TcpConnection::handleWrite()
             outputBuffer_.retrieve(n);
             if(outputBuffer_.readableBytes() == 0) {    // 数据写完
                 channel_->disableWriting();
-                if(WriteCompleteCallback_) {
-                    WriteCompleteCallback_(shared_from_this());
+                if(writeCompleteCallback_) {
+                    writeCompleteCallback_(shared_from_this());
                 }
-                if(state_ == KDisconnecting) {
+                if(state_ == KDisconnecting) {  // 如果调用了shutdown方法，则写完就调用shutdownInLoop
                     shutdownInLoop();
                 }
             }
@@ -109,6 +137,7 @@ void TcpConnection::handleClose()
     channel_->disableAll();
     // 处理对端关闭的逻辑
     connectionCallbck_(shared_from_this());
+    closeCallback_(shared_from_this());
 }
 
 /// @brief  如果缓冲区没有数据，则发送新数据，如果有则先发送缓冲区数据
@@ -129,8 +158,8 @@ void TcpConnection::sendInLoop(const char *msg, int len)
 
         if(nwrote >= 0) {
             remaining = len - nwrote;
-            if(remaining == 0 && WriteCompleteCallback_) {
-                loop_->queueInLoop(std::bind(WriteCompleteCallback_, shared_from_this()));
+            if(remaining == 0 && writeCompleteCallback_) {
+                loop_->queueInLoop(std::bind(writeCompleteCallback_, shared_from_this()));
             }
         }else{
             nwrote = 0;
@@ -153,7 +182,14 @@ void TcpConnection::sendInLoop(const char *msg, int len)
 
         outputBuffer_.append(msg+nwrote, remaining);
         if(!channel_->isWriting()) {
-            channel_->enableWriting();
+            channel_->enableWriting();  // 注册写事件
         }
+    }
+}
+
+void TcpConnection::shutdownInLoop()
+{
+    if(!channel_->isWriting()) {    // outputBuffer中的数据发送完成
+        socket_->shutdownWrite();
     }
 }

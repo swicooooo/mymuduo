@@ -52,7 +52,7 @@ void EventLoop::loop()
     quit_ = false;
     // 循环poll获取活跃的channel并处理event
     while (!quit_) {
-        Timestamp timestamp = poller_->poll(kPollTimeMs,activeChannels_);
+        Timestamp timestamp = poller_->poll(kPollTimeMs,activeChannels_);   // 阻塞 epoll_wait
         for(Channel* channel: *activeChannels_) {
             channel->handleEvent(timestamp);
         }
