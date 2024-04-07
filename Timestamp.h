@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+/// @brief 格式化的字符串时间戳 "%F %T" yyyy-MM-dd hh:mm:ss
 class Timestamp
 {
 public:

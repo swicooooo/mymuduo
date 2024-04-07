@@ -8,10 +8,8 @@
 
 class EventLoop;
 
-/**
- * Channel 封装了sockfd和其相关event，如EPOLLIN、EPOLLOUT，以及绑定了poller需要返回的具体事件
- * Channel通过三个状态改变fd的事件状态
-*/
+/// @brief Channel用于封装sockfd、设置sockfd感兴趣事件和处理事件回调(TcpConnection时设置)
+/// 执行具体的回调，sock相关的api（listen\accept）由Socket类完成
 class Channel : noncopyable
 {
 public:
@@ -24,7 +22,7 @@ public:
     // 处理fd得到poller通知的事件
     void handleEvent(Timestamp receiveTime);
     
-    // 防止channel被手动romove后，还在执行回调函数
+    // 防止channel执行事件回调时TcpConnection被析构
     void tie(const std::shared_ptr<void>& obj);
 
     // 设置回调函数对象
@@ -57,6 +55,7 @@ private:
     void update();  // 通过poller更新fd的事件状态
     void handleEventWithGuard(Timestamp receiveTime);   //根据poller返回的事件，执行对应的回调函数
 
+    // sockfd相关事件
     static const int KNoneEvent;
     static const int KReadEvent;
     static const int KWriteEvent;
@@ -67,7 +66,7 @@ private:
     int revents_;    // poller返回的具体发生的事件
     int index_;      // 对应Channel的状态
 
-    std::weak_ptr<void> tie_;
+    std::weak_ptr<void> tie_;   // 持有TcpConnection引用
     bool tied_;
 
     ReadEventCallback readEventCallback_;

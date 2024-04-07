@@ -1,4 +1,5 @@
 #include "Channel.h"
+#include "EventLoop.h"
 
 #include <sys/epoll.h>
 
@@ -11,7 +12,7 @@ Channel::Channel(EventLoop *loop, int fd) :loop_(loop), fd_(fd), events_(0), rev
 void Channel::handleEvent(Timestamp receiveTime)
 {
     if (tied_) {
-        std::shared_ptr<void> guard = tie_.lock();
+        std::shared_ptr<void> guard = tie_.lock();  // 提高weak_ptr为shared_ptr
         if (guard) {
             handleEventWithGuard(receiveTime);
         }
@@ -28,14 +29,12 @@ void Channel::tie(const std::shared_ptr<void> &obj)
 
 void Channel::remove()
 {
-    // TODO
-    // loop_.removeChannel(this);
+    loop_->removeChannel(this);
 }
 
 void Channel::update()
 {
-    // TODO
-    // loop_.updateChannel(this);
+    loop_->updateChannel(this);
 }
 
 void Channel::handleEventWithGuard(Timestamp receiveTime)

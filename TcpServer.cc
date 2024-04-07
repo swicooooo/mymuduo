@@ -13,12 +13,16 @@ static EventLoop* checkNoNull(EventLoop *loop)
 
 TcpServer::TcpServer(EventLoop *loop, InetAddress &listenAddr, const std::string &nameArg,Option option)
     : loop_(checkNoNull(loop)), 
-        ipPort_(listenAddr.toIpPort()), name_(nameArg), 
-        acceptor_(new Acceptor(loop,listenAddr,option==KReusePort)),
+        ipPort_(listenAddr.toIpPort()), 
+        name_(nameArg), 
+        acceptor_(new Acceptor(loop,listenAddr,option==KReusePort)), 
         threadPool_(new EventLoopThreadPool(loop,name_)),
-        started_(0),nextConnId(1),
-        connectionCallbck_(),messageCallback_()
+        started_(0),
+        nextConnId(1),
+        connectionCallbck_(),
+        messageCallback_()
 {
+    // 当Acceptor监听到新连接触发该回调
     acceptor_->setNewConnCallback(std::bind(&TcpServer::newConnection,this,std::placeholders::_1,std::placeholders::_2));
 }
 TcpServer::~TcpServer()
@@ -53,6 +57,7 @@ void TcpServer::newConnection(int sockfd, const InetAddress &peerAddr)
     std::string connName = name_ + buf;
     LOG_INFO("TcpServer::newConnection [%s] - new connection [%s] from %s \n",name_.c_str(),connName.c_str(),peerAddr.toIpPort().c_str());
 
+    // 组装localAddr
     sockaddr_in local;
     ::bzero(&local, sizeof local);
     socklen_t addrLen = sizeof local;
@@ -69,7 +74,8 @@ void TcpServer::newConnection(int sockfd, const InetAddress &peerAddr)
     conn->setWriteCompleteCallback(writeCompleteCallback_);
     conn->setCloseCallback(std::bind(&TcpServer::removeConnection, this, std::placeholders::_1));
     
-    ioLoop->queueInLoop(std::bind(&TcpConnection::connectEstablished,conn)); // 唤醒subLoop执行链接建立操作
+    // 唤醒subLoop执行链接建立操作,剩下的就是用户和TcpConnectionPtr之间的通信
+    ioLoop->queueInLoop(std::bind(&TcpConnection::connectEstablished,conn)); 
 }
 
 void TcpServer::removeConnection(const TcpConnectionPtr &conn)

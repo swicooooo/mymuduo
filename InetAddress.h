@@ -3,6 +3,7 @@
 #include <netinet/in.h>
 #include <string>
 
+/// @brief 用sockaddr_in封装ip和port返回
 class InetAddress
 {
 public:

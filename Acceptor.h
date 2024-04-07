@@ -9,7 +9,7 @@
 class EventLoop;
 class InetAddress;
 
-// Acceptor内置fd和channel， 用于baseLoop处理新连接
+/// @brief Acceptor内置fd和channel， 用于TcpConnection建立新连接后执行newConnCallback
 class Acceptor : noncopyable
 {
 public:

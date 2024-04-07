@@ -13,13 +13,11 @@
 class Channel;
 class Poller;
 
-/**
- * like -> Reactor (与Demultiplex交互)
- *                      mainReactor
- *      subReactor1     subReactor2     subReactor3
- *  这里Reactor通信是直接通信,可以添加一个线程安全队列隔绝
- *  通过wakeupFd进行唤醒操作, 并处理注册给poller的回调函数
-*/
+/// @brief 
+///                     mainReactor
+///     subReactor1     subReactor2     subReactor3
+/// 这里Reactor是通过eventfd直接通信,or可以添加一个线程安全队列隔绝
+/// 执行EventLoop里面投入的回调函数
 class EventLoop : noncopyable
 {
 public:
@@ -30,8 +28,7 @@ public:
     void loop();    // 开启事件循环
     void quit();    // 退出循环
 
-    /// @brief 当mainLoop调用subLoop的方法时和subLoop调用另一个subLoop方法时使用
-    /// @param cb 
+    // 当mainLoop调用subLoop的方法时和subLoop调用另一个subLoop方法时使用
     void runInLoop(Functor cb);     // 在当前loop中执行cb
     void queueInLoop(Functor cb);   // 将cb放入队列，唤醒loop所在线程并执行cb
     void wakeup();  // 向wakeup随便写一个数据来唤醒loop所在线程

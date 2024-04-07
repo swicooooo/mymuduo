@@ -1,19 +1,15 @@
-#include <muduo/net/TcpServer.h>
-#include <muduo/net/EventLoop.h>
-#include <iostream>
-
-using namespace muduo;
-using muduo::net::TcpServer;
+#include <mymuduo/TcpServer.h>
+#include <string>
 
 class ChatServer
 {
 public:
-    ChatServer(net::EventLoop *loop, const net::InetAddress &listenAddr, const string &nameArg)
+    ChatServer(EventLoop *loop, InetAddress &listenAddr, const std::string &nameArg)
         : _server(loop, listenAddr, nameArg), _loop(loop)
     {
-        _server.setConnectionCallback(std::bind(&ChatServer::onConnection, this, std::placeholders::_1));
+        _server.setConnectionCallbck(std::bind(&ChatServer::onConnection, this, std::placeholders::_1));
         _server.setMessageCallback(std::bind(&ChatServer::onMessage, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
-        _server.setThreadNum(4);
+        _server.setThreadNums(4);
     }
 
     void start()
@@ -21,7 +17,7 @@ public:
         _server.start();
     }
 private:
-    void onConnection(const net::TcpConnectionPtr &connPtr) 
+    void onConnection(const TcpConnectionPtr &connPtr) 
     {
         if(connPtr->connected())
             std::cout << "peerAddress" << connPtr->peerAddress().toIpPort() << "->" << "localAddress" << connPtr->localAddress().toIpPort() << " state: Online" <<std::endl;
@@ -31,21 +27,21 @@ private:
         }
     }
 
-    void onMessage(const net::TcpConnectionPtr &connPtr,net::Buffer *buf,Timestamp Timestamp)
+    void onMessage(const TcpConnectionPtr &connPtr,Buffer *buf,Timestamp Timestamp)
     {
         std::string msg(buf->retrieveAllAsString());
-        std::cout << "recv data: " << msg << " time: " << Timestamp.toFormattedString() << std::endl;
+       
         connPtr->send(msg);
     }
 
     TcpServer _server; // epoll_ctl
-    net::EventLoop *_loop;
+    EventLoop *_loop;
 };
 
 int main()
 {
-    net::EventLoop loop; // epoll_create
-    const net::InetAddress listenAddr("127.0.0.1", 6666);
+    EventLoop loop; // epoll_create
+    InetAddress listenAddr(6666);
     ChatServer server(&loop,listenAddr,"EchoServer");
     server.start();
     loop.loop(); // epoll_wait

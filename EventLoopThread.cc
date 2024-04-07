@@ -4,7 +4,7 @@
 
 EventLoopThread::EventLoopThread(const ThreadInitCallback &func, const std::string &name)
     :exiting_(false), loop_(nullptr),
-    thread_(std::bind(&EventLoopThread::ThreadFunc, this), name),callback_(func){}
+    thread_(std::bind(&EventLoopThread::ThreadFunc, this), name),threadInitCallback_(func){}
 
 EventLoopThread::~EventLoopThread()
 {
@@ -32,8 +32,8 @@ EventLoop* EventLoopThread::startLoop()
 void EventLoopThread::ThreadFunc()
 {
     EventLoop loop;
-    if(callback_) {
-        callback_(&loop);
+    if(threadInitCallback_) {
+        threadInitCallback_(&loop);
     }
     {
         std::unique_lock<std::mutex> lock(mutex_);

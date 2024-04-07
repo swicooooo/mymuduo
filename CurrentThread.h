@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <sys/syscall.h>
 
+/// @brief 获取进程管理下的线程id
 namespace CurrentThread
 {
     extern __thread int t_cacheTid;

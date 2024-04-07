@@ -7,11 +7,13 @@
 #include "EventLoopThread.h"
 #include "EventLoopThreadPool.h"
 #include "TcpConnection.h"
+#include "Buffer.h"
 
 #include <atomic>
 #include <memory>
 #include <unordered_map>
 
+/// @brief 
 class TcpServer
 {
 public:
@@ -28,6 +30,7 @@ public:
     void setThreadNums(int numThreads);
     void setThreadInitCallback(const ThreadInitCallback& cb) { threadInitCallback_ = cb; }
 
+    // 用户设置->TcpServer->TcpConnection->Channel调用
     void setConnectionCallbck(const ConnectionCallbck &cb) { connectionCallbck_ = cb; }
     void setMessageCallback(const MessageCallback &cb) { messageCallback_ = cb; }
     void setWriteCompleteCallback(const WriteCompleteCallback &cb) { writeCompleteCallback_ = cb; }

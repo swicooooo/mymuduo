@@ -10,7 +10,7 @@
 class EventLoop;
 class EventLoopThread;
 
-// EventLoopThreadPool => EventLoopThread => EventLoop 间接调用
+/// @brief 设置ThreadNum后开启多线程，否则只用传递进来的mainLoop
 class EventLoopThreadPool : noncopyable
 {
 public:
@@ -20,7 +20,7 @@ public:
 
     void setThreadNum(int numThreads) { numThreads_ = numThreads; }
     void start(const ThreadInitCallback &cb = ThreadInitCallback());
-    EventLoop* getNextLoop();
+    EventLoop* getNextLoop();   // 轮询算法选择ioLoop
 
     bool started() const{ return started_; }
     const std::string name() const{ return name_; }

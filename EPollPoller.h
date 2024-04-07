@@ -9,10 +9,7 @@
 class EventLoop;
 class Channel;
 
-/**
- * EPoller通过三个状态控制Channel的注册和销毁
- * epoll_create     epoll_ctl    epoll_wait
-*/
+/// @brief 监听注册在Loop下的channel中的sockfd
 class EPollPoller : public Poller
 {
 public:

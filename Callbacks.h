@@ -7,6 +7,7 @@ class Buffer;
 class TcpConnection;
 class Timestamp;
 
+/// @brief 
 using TcpConnectionPtr = std::shared_ptr<TcpConnection>;
 using ConnectionCallbck = std::function<void(const TcpConnectionPtr&)>;
 using CloseCallback = std::function<void(const TcpConnectionPtr&)>;

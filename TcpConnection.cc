@@ -19,9 +19,14 @@ static EventLoop* checkNoNull(EventLoop *loop)
 }
 
 TcpConnection::TcpConnection(EventLoop *loop,const std::string nameArg, int sockfd,const InetAddress &localAddr, const InetAddress &peerAddr)
-    : loop_(checkNoNull(loop)), name_(nameArg),state_(KConnecting), reading(true),
-    socket_(new Socket(sockfd)),channel_(new Channel(loop,sockfd)),
-    localAddr_(localAddr), peerAddr_(peerAddr), highWaterMark_(64*1024*1024)
+    : loop_(checkNoNull(loop)), 
+        name_(nameArg),state_(KConnecting), 
+        reading(true),
+        socket_(new Socket(sockfd)),
+        channel_(new Channel(loop,sockfd)),
+        localAddr_(localAddr), 
+        peerAddr_(peerAddr), 
+        highWaterMark_(64*1024*1024)
 {
     channel_->setReadEventCallback(std::bind(&TcpConnection::handleRead,this, std::placeholders::_1));
     channel_->setWriteEventCallback(std::bind(&TcpConnection::handleWrite,this));
@@ -140,9 +145,7 @@ void TcpConnection::handleClose()
     closeCallback_(shared_from_this());
 }
 
-/// @brief  如果缓冲区没有数据，则发送新数据，如果有则先发送缓冲区数据
-/// @param msg 
-/// @param len 
+// 如果缓冲区没有数据，则发送新数据，如果有则先发送缓冲区数据
 void TcpConnection::sendInLoop(const char *msg, int len)
 {
     ssize_t nwrote =0;

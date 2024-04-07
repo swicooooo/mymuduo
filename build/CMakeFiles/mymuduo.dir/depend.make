@@ -15,6 +15,8 @@ CMakeFiles/mymuduo.dir/Buffer.cc.o: ../Buffer.h
 
 CMakeFiles/mymuduo.dir/Channel.cc.o: ../Channel.cc
 CMakeFiles/mymuduo.dir/Channel.cc.o: ../Channel.h
+CMakeFiles/mymuduo.dir/Channel.cc.o: ../CurrentThread.h
+CMakeFiles/mymuduo.dir/Channel.cc.o: ../EventLoop.h
 CMakeFiles/mymuduo.dir/Channel.cc.o: ../Timestamp.h
 CMakeFiles/mymuduo.dir/Channel.cc.o: ../noncopyable.h
 

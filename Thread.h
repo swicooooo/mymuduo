@@ -8,6 +8,7 @@
 
 #include "noncopyable.h"
 
+/// @brief Thread用于创建一个线程，并在该线程中执行回调func
 class Thread : noncopyable
 {
 public:
@@ -31,5 +32,5 @@ private:
     std::shared_ptr<std::thread> thread_;   // 用智能指针包裹thread,控制启动时间
     ThreadFunc func_;
     std::string name_;
-    static std::atomic_int32_t numCreated_;
+    static std::atomic_int32_t numCreated_; // 创建的总线程数
 };

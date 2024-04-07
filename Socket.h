@@ -2,6 +2,7 @@
 
 #include "InetAddress.h"
 
+/// @brief 封装sockfd相关的linux的api
 class Socket
 {
 public:
@@ -10,7 +11,7 @@ public:
 
     void bindAddress(InetAddress &localAddr);
     void listen();
-    int accept(InetAddress *peerAddr);
+    int accept(InetAddress *peerAddr);  // 返回通信sockfd
     int fd() const{ return sockfd_; }
 
     void shutdownWrite();

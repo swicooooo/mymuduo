@@ -9,9 +9,7 @@
 class Channel;
 class EventLoop;
 
-/** 
- *  Demultiplex : IO复用模块
-*/
+/// @brief 监听当前Loop下的所有channel
 class Poller : noncopyable
 {
 public:

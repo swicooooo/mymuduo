@@ -12,6 +12,7 @@ class EventLoop;
 class Socket;
 class Channel;
 
+/// @brief 
 class TcpConnection : noncopyable, public std::enable_shared_from_this<TcpConnection>
 {
 public:
@@ -21,7 +22,6 @@ public:
     void send(const std::string &buf);
     void shutdown();
 
-    bool connected() const{ return state_ == KConnected; }
     void connectEstablished();
     void connectDestroyed();
 
@@ -31,12 +31,15 @@ public:
     void setCloseCallback(const CloseCallback &cb) { closeCallback_ = cb; }
     void setHighWaterMarkCallback(const HighWaterMarkCallback &cb, std::size_t highWaterMark) { highWaterMarkCallback_ = cb; highWaterMark_ = highWaterMark; }
 
+    bool connected() const{ return state_ == KConnected; }
     EventLoop* getLoop() const{ return loop_; }
     std::string name() const{ return name_; }
+    const InetAddress peerAddress() const { return peerAddr_; }
+    const InetAddress localAddress() const { return localAddr_; }
 private:
     enum StateE { KDisconnected, KConnecting, KConnected, KDisconnecting };
     void setState(StateE state) { state_ = state; }
-    // Channel所需要处理的事件类型
+    // TcpConnection为Channel设置所需要处理的事件类型的回调
     void handleRead(Timestamp receiveTime);
     void handleWrite();
     void handleError();

@@ -18,7 +18,6 @@ static int createNonBlocking()
 Acceptor::Acceptor(EventLoop *loop, InetAddress &listenAddr, bool reusePort)
     : listenning_(false), loop_(loop), acceptSock_(createNonBlocking()), acceptChannel_(loop, acceptSock_.fd())
 {
-    // TODO reuse socket option
     acceptSock_.setReuseAddr(true);
     acceptSock_.setReuseAddr(true);
     acceptSock_.bindAddress(listenAddr);
@@ -34,7 +33,7 @@ void Acceptor::listen()
 {
     listenning_ = true;
     acceptSock_.listen();
-    acceptChannel_.enableReading();
+    acceptChannel_.enableReading(); // 设置acceptSockfd感兴趣事件：读
 }
 
 void Acceptor::handleRead()
