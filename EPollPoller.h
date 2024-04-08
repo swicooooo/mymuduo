@@ -1,30 +1,39 @@
 #pragma once
 
-#include "Poller.h"
-#include "Timestamp.h"
+#include"Poller.h"
+#include"Timestamp.h"
 
-#include <sys/epoll.h>
-#include <vector>
+#include<vector>
+#include<sys/epoll.h>
 
-class EventLoop;
 class Channel;
+/*
+   这是一个epoll实现的多路事件分发器.其内部实现依赖了epoll相关的系统调用(epoll_create,epoll_ctl,epoll_wait)和std::vector
 
-/// @brief 监听注册在Loop下的channel中的sockfd
-class EPollPoller : public Poller
-{
-public:
-    EPollPoller(EventLoop *loop);
-    ~EPollPoller() override;
+   poll函数等待事件发生,并且返回活跃的Channel列表以及时间戳.
+   updateChannel函数讲一个Channel对应的文件描述符和关注的事件添加到epoll机制中.
+   removeChannel将一个Channel对应的文件描述符和关注的事件从epoll机制中删除.
+ */
 
-    Timestamp poll(int timeoutMs, ChannelList *activeChannel) override;
-    void updateChannel(Channel *channel) override;      // 在Channel中改变event状态后poller相应改变epoll中的fd感兴趣事件
-    void removeChannel(Channel *channel) override;      // 从epoll和Channels中移除channel
-private:
-    void update(int operation, Channel *channel);       // 更新fd在epoll中的感兴趣事件
-    void fillActiveChannel(int numEvents, ChannelList *activeChannel) const; // 填充活跃的Channel
+class EPollPoller:public Poller{
+	public:
+		EPollPoller(EventLoop* loop);
+		~EPollPoller() override;
 
-    static const int KInitEventListSize = 16;
-    using EventList = std::vector<epoll_event>;
-    int epollfd_;          // poller的标识符
-    EventList eventlist_;  // poller保存的事件合集
+		// 重写基类的抽象方法
+		Timestamp poll(int timeoutMs,ChannelList* activeChannels) override;
+		void updateChannel(Channel* channel) override;
+		void removeChannel(Channel* channel) override;
+	private:
+		static const int kInitEventListSize = 16; // 初始化events_的大小
+		// 填写活跃的连接
+		void fillActiveChannels(int numEvents,
+				ChannelList* activeChannels) const;
+		// 将一个Channel对应的文件描述符的关注的事件添加或从epoll中修改或删除
+		void update(int operation,Channel* channel);
+
+		using EventList = std::vector<epoll_event>;
+
+		int epollfd_;
+		EventList events_; // epoll_event集合
 };

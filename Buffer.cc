@@ -1,42 +1,37 @@
-#include "Buffer.h"
+#include"Buffer.h"
 
-#include <cerrno>
-#include <sys/types.h>
-#include <sys/uio.h>
-#include <unistd.h>
+#include<sys/uio.h>
+#include<errno.h>
+#include<unistd.h>
 
-// readv能使用多段非连续的空间存储数据
-int Buffer::readFd(int fd, int *saveErrno)
-{
-    char extraBuf[65536] = {0}; // 64k,最大存储空间
+// 从fd上读取数据 LT模式
+ssize_t Buffer::readFd(int fd,int* savedErrno){
+	char extrabuf[65536]; // 栈上开辟的内存空间 64K
+	struct iovec vec[2];
+	const size_t writable = writableBytes(); // 可写缓冲区的大学
+	vec[0].iov_base = begin() + writerIndex_; // 第一块缓冲区起始地址
+	vec[0].iov_len = writable; // 当我们用readv从socket缓冲区读数据,首先会填充这个vec[0],也就是我们的buffer
+	vec[1].iov_base = extrabuf; // 第二块缓冲区,如果buffer填满了,就会填到这里
+	vec[1].iov_len = sizeof extrabuf; // 栈空间大小
 
-    int writeable = writeableBytes();
-    struct iovec iov[2]; // 第一块用buffer堆存储，第二块用extraBuf栈存储
-    iov[0].iov_base = beginWrite();
-    iov[0].iov_len = writeable;
-
-    iov[1].iov_base = extraBuf;
-    iov[1].iov_len = sizeof extraBuf;
-
-    ssize_t n = ::readv(fd, iov, writeable<sizeof extraBuf?2:1); 
-    if(n < 0){
-        *saveErrno = errno;
-    }
-    else if(n <= writeable) {   // buffer够写
-        writerIndex_ += n;
-    }
-    else {  // 多余的存储在extraBuf
-        writerIndex_ = buffer_.size();
-        append(extraBuf, n-writeable);
-    }
-    return n;
+	const int iovcnt = (writable < sizeof extrabuf)?2:1;
+	const ssize_t n = readv(fd,vec,iovcnt);
+	if(n < 0){
+		*savedErrno = errno;  // 出错了
+	}
+	else if(n <= writable){ // 说明buffer空间够用
+		writerIndex_ += n;
+	} else { // buffer空间不够,extrabuf上也有数据,用append把这部分数据拷贝过来
+		writerIndex_ = buffer_.size();
+		append(extrabuf,n - writable);
+	}
+	return n;
 }
 
-int Buffer::writeFd(int fd, int *saveErrno)
-{
-    int n = ::write(fd, peek(), readableBytes());   
-    if(n < 0) {
-        *saveErrno = errno;
-    }
-    return n;
+ssize_t Buffer::writeFd(int fd,int* savedErrno){
+	ssize_t n = ::write(fd,peek(),readableBytes());
+	if(n < 0){
+		*savedErrno = errno;
+	}
+	return n;
 }

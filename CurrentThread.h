@@ -1,19 +1,21 @@
 #pragma once
 
-#include <unistd.h>
-#include <sys/syscall.h>
+#include<unistd.h>
+#include<sys/syscall.h>
 
-/// @brief 获取进程管理下的线程id
-namespace CurrentThread
-{
-    extern __thread int t_cacheTid;
+/*
+   这是一个获取当前线程ID的工具类,使用线程本地存储(Thread local storage,TLS)来缓存当前线程ID.
+ */
 
-    void cacheTid();    // 获取linux下进程管理的当前线程id
+namespace CurrentThread{
+	extern __thread int t_cachedTid;
 
-    inline int tid() {
-        if(__builtin_expect(t_cacheTid == 0, 0)) {  // 默认优化
-            cacheTid();
-        }
-        return t_cacheTid;
-    }      
+	void catchTid();
+
+	inline int tid(){
+		if(__builtin_expect(t_cachedTid == 0,0)){
+			catchTid();
+		}
+		return t_cachedTid;
+	}
 }

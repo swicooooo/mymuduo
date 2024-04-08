@@ -1,16 +1,17 @@
 #pragma once
 
-#include <functional>
-#include <memory>
+#include<memory>
+#include<functional>
 
 class Buffer;
 class TcpConnection;
 class Timestamp;
 
-/// @brief 
 using TcpConnectionPtr = std::shared_ptr<TcpConnection>;
-using ConnectionCallbck = std::function<void(const TcpConnectionPtr&)>;
-using CloseCallback = std::function<void(const TcpConnectionPtr&)>;
-using WriteCompleteCallback = std::function<void(const TcpConnectionPtr&)>;
-using MessageCallback = std::function<void(const TcpConnectionPtr&, Buffer*, Timestamp)>;
-using HighWaterMarkCallback = std::function<void(const TcpConnectionPtr&, std::size_t)>;
+using ConnectionCallback = std::function<void(const TcpConnectionPtr&)>;
+using CloseCallback = std::function<void (const TcpConnectionPtr&)>;
+using WriteCompleteCallback = std::function<void (const TcpConnectionPtr&)>;
+using MessageCallback = std::function<void (const TcpConnectionPtr&,
+											Buffer*,
+											Timestamp)>;
+using HighWaterMarkCallback = std::function<void (const TcpConnectionPtr&,size_t)>;

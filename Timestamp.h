@@ -1,15 +1,20 @@
 #pragma once
 
-#include <iostream>
+#include<iostream>
+#include<string>
 
-/// @brief 格式化的字符串时间戳 "%F %T" yyyy-MM-dd hh:mm:ss
-class Timestamp
-{
-public:
-    Timestamp();
-    explicit Timestamp(int64_t microsecondsSinceEpoch);
-    static Timestamp now(); // 获取当前时间类对象
-    std::string toString(); // 将时间戳转换为字符串
-private:
-    int64_t microsecondsSinceEpoch_;
+/*
+   microSecondsSinceEpoch_表示1970.1.1 0分0秒到现在的微秒数
+   构造函数被显式声明为explicit,
+   这意味着构造函数不会被用于隐式类型转换,只能显示调用.
+
+ */
+class Timestamp{
+	public:
+		Timestamp();
+		explicit Timestamp(int64_t microSecondsSinceEpoch);
+		static Timestamp now();
+		std::string toString() const;
+	private:
+		int64_t microSecondsSinceEpoch_;
 };

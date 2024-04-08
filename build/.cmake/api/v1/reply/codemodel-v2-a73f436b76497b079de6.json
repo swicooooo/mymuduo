@@ -8,7 +8,7 @@
 					"build" : ".",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.5"
+						"string" : "2.5"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -38,7 +38,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "mymuduo::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-mymuduo-3b4c5e8a251e6d1f4ae4.json",
+					"jsonFile" : "target-mymuduo-c53286c6bde227055034.json",
 					"name" : "mymuduo",
 					"projectIndex" : 0
 				}

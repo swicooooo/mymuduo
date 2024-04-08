@@ -1,21 +1,28 @@
 #pragma once
 
-#include <netinet/in.h>
-#include <string>
+#include<arpa/inet.h>
+#include<netinet/in.h>
+#include<string>
 
-/// @brief 用sockaddr_in封装ip和port返回
-class InetAddress
-{
-public:
-    explicit InetAddress(uint16_t port = 0, std::string i = "127.0.0.1");
-    explicit InetAddress(struct sockaddr_in &addr);
+/*
+   InetAddr类用于封装IP地址和端口号.
 
-    std::string toIp() const; // 获取Ip
-    uint16_t toPort() const;  // 获取port
-    std::string toIpPort() const; // 获取IpPort
+   toIp函数返回IP地址的字符串表示
+   toPort函数返回端口号
+ */
+class InetAddress{
+	public:
+		explicit InetAddress(uint16_t port = 0,
+				std::string ip = "127.0.0.1");
+		explicit InetAddress(const sockaddr_in& addr)
+			:addr_(addr) {}
 
-    struct sockaddr_in* getSockAddr(); // 获取Sockaddr
-    void setSockAddr(sockaddr_in addr) { addr_ = addr; }
-private:
-    struct sockaddr_in addr_;
+		std::string toIp() const;
+		std::string toIpPort() const;
+		uint16_t toPort() const;
+
+		const sockaddr_in* getSockAddr() const { return &addr_; }
+		void setSockAddr(const sockaddr_in& addr) { addr_ = addr; }
+	private:
+		sockaddr_in addr_;
 };

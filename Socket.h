@@ -1,25 +1,27 @@
 #pragma once
 
-#include "InetAddress.h"
+#include"noncopyable.h"
 
-/// @brief 封装sockfd相关的linux的api
-class Socket
-{
-public:
-    explicit Socket(int sockfd): sockfd_(sockfd){}
-    ~Socket();
+class InetAddress;
 
-    void bindAddress(InetAddress &localAddr);
-    void listen();
-    int accept(InetAddress *peerAddr);  // 返回通信sockfd
-    int fd() const{ return sockfd_; }
+class Socket : noncopyable{
+	public:
+		explicit Socket(int sockfd):sockfd_(sockfd)
+		{  }
+		~Socket();
 
-    void shutdownWrite();
+		int fd() const { return sockfd_; }
+		void bindAddress(const InetAddress& localaddr); // 调用bind绑定ip,port
+		void listen(); // 调用listen监听套接字
+		int accept(InetAddress* peeraddr); // 调用accept接受客户端连接
 
-    void setTcpNoDelay(bool on);
-    void setReuseAddr(bool on);
-    void setReusePort(bool on);
-    void setKeepAlive(bool on); 
-private:
-    int sockfd_;
+		void shutdownWrite(); // 调用shutdown关闭服务端写通道
+		
+		// 下面四个函数都是调用setsockopt函数来设置一些socket选项
+		void setTcpNoDelay(bool on); // 不启用naggle算法,增大对小数据包的支持
+		void setReuseAddr(bool on);
+		void setReusePort(bool on);
+		void setKeepAlive(bool on);
+	private:
+		const int sockfd_; // 服务器监听套接字 listenfd
 };
