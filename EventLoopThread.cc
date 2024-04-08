@@ -17,11 +17,11 @@ EventLoopThread::~EventLoopThread()
 
 EventLoop* EventLoopThread::startLoop()
 {
-    thread_.start();
+    thread_.start(); // 执行thread绑定的回调EventLoopThread::ThreadFunc
     EventLoop *loop = nullptr;
     {
         std::unique_lock<std::mutex> lock(mutex_);
-        while (loop == nullptr) {
+        while (loop == nullptr) { // 等待EventLoop创建成功
             cond_.wait(lock);
         }
         loop = loop_;

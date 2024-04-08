@@ -18,6 +18,7 @@ Thread::~Thread()
     }
 }
 
+// 开启单独线程
 void Thread::start()
 {
     sem_t sem;

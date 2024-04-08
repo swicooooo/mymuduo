@@ -39,7 +39,7 @@ public:
 private:
     enum StateE { KDisconnected, KConnecting, KConnected, KDisconnecting };
     void setState(StateE state) { state_ = state; }
-    // TcpConnection为Channel设置所需要处理的事件类型的回调
+    // TcpConnection为Channel设置所需要处理的事件类型的实际回调
     void handleRead(Timestamp receiveTime);
     void handleWrite();
     void handleError();

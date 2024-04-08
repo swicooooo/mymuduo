@@ -185,7 +185,9 @@ void TcpConnection::sendInLoop(const char *msg, int len)
 
         outputBuffer_.append(msg+nwrote, remaining);
         if(!channel_->isWriting()) {
-            channel_->enableWriting();  // 注册写事件
+            // 注册channel写事件,poller更新channel状态后，channel会调用写setWriteEventCallback，
+            // 即TcpConnection::handleWrite发送outputBuffer剩余的数据
+            channel_->enableWriting();  
         }
     }
 }

@@ -53,7 +53,7 @@ void EventLoop::loop()
     // 循环poll获取活跃的channel并处理event
     while (!quit_) {
         Timestamp timestamp = poller_->poll(kPollTimeMs,activeChannels_);   // 阻塞 epoll_wait
-        for(Channel* channel: *activeChannels_) {
+        for(Channel* channel: *activeChannels_) {   // 执行发生的事件回调
             channel->handleEvent(timestamp);
         }
         doPendingFunctor();
@@ -78,6 +78,8 @@ void EventLoop::runInLoop(Functor cb)
     }
 }
 
+// 当有cb不在原本Loop中时，queueInLoop将cb放入pendingFunctors_，
+// 然后在loop每次poll后执行(如果在沉睡，那么会通过eventfd来wakeup该Loop，然后执行放入pendingFunctors_的回调)
 void EventLoop::queueInLoop(Functor cb)
 {
     {

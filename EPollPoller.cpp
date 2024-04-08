@@ -25,6 +25,7 @@ EPollPoller::~EPollPoller()
     ::close(epollfd_);
 }
 
+// 使用epoll_wait等待事件发生，并且填充activeChannel
 Timestamp EPollPoller::poll(int timeoutMs, ChannelList *activeChannel)
 {
     // LOG_DEBUG 
