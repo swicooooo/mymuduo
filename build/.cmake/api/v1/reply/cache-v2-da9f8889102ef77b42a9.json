@@ -67,7 +67,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/mnt/e/ubuntu/mymuduo/build"
+			"value" : "/mnt/e/mymuduo/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -607,7 +607,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/mnt/e/ubuntu/mymuduo"
+			"value" : "/mnt/e/mymuduo"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1167,7 +1167,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/mnt/e/ubuntu/mymuduo/build"
+			"value" : "/mnt/e/mymuduo/build"
 		},
 		{
 			"name" : "mymuduo_SOURCE_DIR",
@@ -1179,7 +1179,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/mnt/e/ubuntu/mymuduo"
+			"value" : "/mnt/e/mymuduo"
 		}
 	],
 	"kind" : "cache",

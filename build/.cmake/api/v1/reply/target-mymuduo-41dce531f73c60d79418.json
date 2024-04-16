@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/mnt/e/ubuntu/mymuduo/lib/libmymuduo.so"
+			"path" : "/mnt/e/mymuduo/lib/libmymuduo.so"
 		}
 	],
 	"backtrace" : 1,

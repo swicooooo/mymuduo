@@ -82,7 +82,7 @@ void EventLoop::loop(){
 	looping_ = true;
 	quit_ = false;
 	
-	LOG_INFO("EventLoop %p strat looping \n",this);
+	LOG_DEBUG("EventLoop %p strat looping \n",this);
 
 	while(!quit_){
 		activeChannels_.clear();

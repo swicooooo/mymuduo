@@ -37,7 +37,7 @@ EPollPoller::~EPollPoller(){
 // 主要调用epoll_wait
 Timestamp EPollPoller::poll(int timeoutMs,ChannelList* activeChannels){
 	// 这里写日志对效率影响大,用LOG_DEBUG更加合理
-	LOG_INFO("func=%s -> fd total count:%lu \n",__FUNCTION__,channels_.size());
+	LOG_DEBUG("func=%s -> fd total count:%lu \n",__FUNCTION__,channels_.size());
 
 	int numEvents = ::epoll_wait(epollfd_,&*events_.begin(),static_cast<int>(events_.size()),timeoutMs);
 
@@ -69,7 +69,7 @@ Timestamp EPollPoller::poll(int timeoutMs,ChannelList* activeChannels){
  */
 // 从poller中删除channel
 void EPollPoller::removeChannel(Channel* channel){
-	LOG_INFO("func=%s => fd=%d \n",__FUNCTION__,channel->fd());
+	LOG_DEBUG("func=%s => fd=%d \n",__FUNCTION__,channel->fd());
 
 	int fd = channel->fd();
 	channels_.erase(fd);  // 从channelMap中删除
@@ -83,7 +83,7 @@ void EPollPoller::removeChannel(Channel* channel){
 
 void EPollPoller::updateChannel(Channel* channel){
 	const int index = channel->index();
-	LOG_INFO("func=%s => fd=%d events=%d index=%d \n",__FUNCTION__,channel->fd(),channel->events(),index);
+	LOG_DEBUG("func=%s => fd=%d events=%d index=%d \n",__FUNCTION__,channel->fd(),channel->events(),index);
 
 	if(index == kNew or index == kDeleted){
 		if(index == kNew){
