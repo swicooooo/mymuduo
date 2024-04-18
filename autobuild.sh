@@ -15,18 +15,18 @@ cd `pwd`/build &&
 #回到根目录
 cd ..
 
-#把头文件拷贝到/usr/include/mymuduo so库到/usr/lib
+#把头文件拷贝到/usr/local/include/mymuduo so库到/usr/local/lib
 #环境变量不用设置
-if [ ! -d /usr/include/mymuduo ];then
-	mkdir /usr/include/mymuduo
+if [ ! -d /usr/local/include/mymuduo ];then
+	mkdir /usr/local/include/mymuduo
 fi
 
 for header in `ls *.h`
 do
-	cp $header /usr/include/mymuduo
+	cp $header /usr/local/include/mymuduo
 done
 
-cp `pwd`/lib/libmymuduo.so /usr/lib
+cp `pwd`/lib/libmymuduo.so /usr/local/lib
 
 ldconfig
 
