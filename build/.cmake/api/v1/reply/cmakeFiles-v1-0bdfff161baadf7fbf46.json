@@ -683,8 +683,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/sw/mymuduo/build",
-		"source" : "/home/sw/mymuduo"
+		"build" : "/mnt/e/mymuduo/build",
+		"source" : "/mnt/e/mymuduo"
 	},
 	"version" : 
 	{

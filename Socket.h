@@ -2,6 +2,8 @@
 
 #include"noncopyable.h"
 
+#include <unistd.h>
+
 class InetAddress;
 
 class Socket : noncopyable{
@@ -14,6 +16,9 @@ class Socket : noncopyable{
 		void bindAddress(const InetAddress& localaddr); // 调用bind绑定ip,port
 		void listen(); // 调用listen监听套接字
 		int accept(InetAddress* peeraddr); // 调用accept接受客户端连接
+		void connect(const InetAddress& peerAddr);
+		ssize_t recv(void* buf, size_t len);
+		ssize_t send(void* buf, size_t len);
 
 		void shutdownWrite(); // 调用shutdown关闭服务端写通道
 		
