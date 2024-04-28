@@ -54,10 +54,16 @@ ssize_t Socket::recv(void *buf, size_t len)
 	return ::recv(sockfd_, buf, len, 0);
 }
 
-ssize_t Socket::send(void *buf, size_t len)
+ssize_t Socket::send(const void *buf, size_t len)
 {
 	return ::send(sockfd_, buf, len, 0);
 }
+
+void Socket::close()
+{
+	::close(sockfd_);
+}
+
 void Socket::shutdownWrite()
 {
 	if (::shutdown(sockfd_, SHUT_WR) < 0)
