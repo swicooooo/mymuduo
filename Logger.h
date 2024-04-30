@@ -83,13 +83,16 @@ public:
 	// 写日志接口
 	void log(std::string msg);
 	///////////////////local///////////////////////
+	// 设置日志文件名
+	void setLogName(const std::string &logName);
 	// 异步写本地日志
-	void asyncWrite(int logLevel, const std::string& format);
+	void asyncWrite(int logLevel, const std::string& format, ...);
 	// 停止thread
 	void stop();
 
 private:
 	int logLevel_;
+	std::string logName_;
 	Logger();
 	void processTask(std::string task);	// 处理字符串任务
 

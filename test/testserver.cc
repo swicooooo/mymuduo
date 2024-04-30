@@ -2,8 +2,8 @@
 
 void testLog()
 {
-	Logger::instance().asyncWrite(0, "hello ");
-	Logger::instance().asyncWrite(0, "world!");
+	Logger::instance().asyncWrite(0, "hello %s", "world!");
+	Logger::instance().asyncWrite(0, "hello %s", "world!");
 	Logger::instance().stop();
 }
 

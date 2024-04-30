@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <cstdarg>
 
 // 获取日志类唯一的实例对象
 Logger &Logger::instance()
@@ -16,6 +17,11 @@ Logger &Logger::instance()
 void Logger::setLogLevel(int level)
 {
 	logLevel_ = level;
+}
+
+void Logger::setLogName(const std::string &logName)
+{
+	logName_ = logName;
 }
 
 // 写日志接口
@@ -43,11 +49,19 @@ void Logger::log(std::string msg)
 	std::cout << Timestamp::now().toString() << " : " << msg << std::endl;
 }
 
-void Logger::asyncWrite(int logLevel, const std::string &format)
+void Logger::asyncWrite(int logLevel, const std::string &format, ...)
 {
+	std::stringstream ss;
+	{
+		va_list args;
+		va_start(args, format);
+		char buffer[128];
+		vsnprintf(buffer, sizeof(buffer), format.c_str(), args);
+		ss << buffer;
+		va_end(args);
+	}
 	std::lock_guard<std::mutex> lock(mutex_);
-	queue_.push(format);
-	std::cout << "push-------------------"  << std::endl;
+	queue_.push(ss.str());
 	cond_.notify_one();
 }
 void Logger::stop()
@@ -56,10 +70,9 @@ void Logger::stop()
 	cond_.notify_all();
 }
 
-Logger::Logger()
+Logger::Logger():stop_(false), logName_("log.txt")
 {
 	std::thread([this]() {
-		std::cout << "start-------------------"  << std::endl;
 		while(true)
 		{
 			// 如果队列不为空，需要判断是否停止
@@ -72,7 +85,6 @@ Logger::Logger()
 			}
 			std::string task = queue_.front();
 			queue_.pop();
-			std::cout << "pop-------------------"  << std::endl;
 			lock.unlock();
 			processTask(task);
 		} })
@@ -83,9 +95,8 @@ void Logger::processTask(std::string task)
 {
 	// 做本地化存储
 	task.insert(0, Timestamp::now().toString() + " ");
-	std::ofstream logFile("log.txt", std::ios::app);
+	std::ofstream logFile(logName_, std::ios::app);
 	logFile << task << std::endl;
-	std::cout << "end-------------------"  << std::endl;
 	logFile.flush();
 	logFile.close();
 }
